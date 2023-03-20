@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+  <mapper namespace="com.quiz.lesson02.dao.StoreMapper"> <!--띄어쓰기 조심. 쉼표 조심. -->
+  
+  <!-- id의 메소드명은 무조건 복붙!! -->
+  <select id="selectStoreList" resultType="com.quiz.lesson02.model.Store">  <!--하나의 행이 어디에 담기는지 써야함.  --><!-- 연결해주는 곳 -->
+ 		SELECT
+ 			*
+		FROM
+			`store`
+ 	</select>
+
+  
+  
+  </mapper>
+  
+  
+  
+ 
