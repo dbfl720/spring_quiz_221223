@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import com.quiz.lesson02.dao.StoreMapper;
 import com.quiz.lesson02.model.Store;
 
-@Service
+@Service // **@Service 
 public class StoreBO {
 
-	@Autowired   // new를 하지 않고 스프링 객체 가져오는 방법
-	private StoreMapper storeMapper;  // 리스트 요청할려고 storeMapper 온거임. 
+	@Autowired   // spring bean을 들고 오고 싶을 때 씀.
+	private StoreMapper storeMapper;  //**Mapper와 연결
 	
 	
-	public List<Store> getStoreList() {  // select 할때 get으로 이름을 지은다.
-		return storeMapper.selectStoreList();
+	public List<Store> getStoreList() {  // ** 메소드명은 (get + ____) // select 할때 get으로 이름을 지은다.
+		return storeMapper.selectStoreList();  //**Mapper와 연결
 	}
 }

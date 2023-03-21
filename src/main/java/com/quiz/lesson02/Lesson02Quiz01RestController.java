@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.quiz.lesson02.BO.StoreBO;
 import com.quiz.lesson02.model.Store;
 
-@RestController
+@RestController // **View 연결
 public class Lesson02Quiz01RestController {
 
-	@Autowired //주입받음.
-	private StoreBO storeBO;
+	@Autowired  // 해당하는 Spring Bean을 찾아 사용할 수 있도록 한다.
+	private StoreBO storeBO; // **BO와 연결
 	
 	
-	@RequestMapping("/lesson02/quiz01")
+	@RequestMapping("/lesson02/quiz01")  //**View 연결 // url path 매핑
 	public List<Store> quiz01() {
-		List<Store> storeList = storeBO.getStoreList();  // bo야 나한테 데이터좀 줘.
+		List<Store> storeList = storeBO.getStoreList();  //**BO와 연결. //  DB에서 가져오는 거기 때문에
 		return storeList;  // list => JSON
 	}
 
