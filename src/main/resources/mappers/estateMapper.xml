@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!-- dtd문법 -->
+ 
+ <mapper namespace="com.quiz.lesson03.dao.EstateMapper"> <!-- mapper패키지명 써야됨.공백 없이 주의  / 컨트롤 눌러서 확인 필수.-->
+ 
+ 		<!-- mapper 인터페이스의 메소드 이름이 아이디 됨.  하나의 행은  model패키지명 써야됨.-->
+ 		<!-- select는 실무에서도 하나하나 써야됨 -->
+	<select id="selectEstateById" parameterType="int" resultType="com.quiz.lesson03.model.Estate"> 
+		SELECT
+			`id`
+			,`realtorId`
+			,`address`
+			,`area`
+			,`type`
+			,`price`
+			,`rentPrice`
+			,`createdAt`
+			,`updatedAt`	
+		FROM 
+			`real_estate`
+		WHERE
+			`id` = #{id}
+	</select>
+	<!-- Mapper에 @param() 가로안에 부분을 where에 쓰기. -->
+ 
+ 
+ 
+ 
+ 	<select id="selectEstateByRent_Price" parameterType="Integer" resultType="com.quiz.lesson03.model.Estate"> 
+		SELECT
+			`id`
+			,`realtorId`
+			,`address`
+			,`area`
+			,`type`
+			,`price`
+			,`rentPrice`
+			,`createdAt`
+			,`updatedAt`	
+		FROM 
+			`real_estate`
+		WHERE
+			`id` = #{rent_price}
+	</select>
+ </mapper>
