@@ -27,7 +27,7 @@
  
  
  
- 	<select id="selectEstateByRent_Price" parameterType="Integer" resultType="com.quiz.lesson03.model.Estate"> 
+ 	<select id="selectEstateListByRentPrice" parameterType="Integer" resultType="com.quiz.lesson03.model.Estate"> 
 		SELECT
 			`id`
 			,`realtorId`
@@ -41,6 +41,35 @@
 		FROM 
 			`real_estate`
 		WHERE
-			`id` = #{rent_price}
+			<![CDATA[
+			`rentPrice` < #{rentPrice}
+			]]>
+			
 	</select>
+	
+	
+	
+	
+	<select id="selectEstateListByAreaAndPrice" parameterType="int" resultType="com.quiz.lesson03.model.Estate"> 
+		SELECT
+			`id`
+			,`realtorId`
+			,`address`
+			,`area`
+			,`type`
+			,`price`
+			,`rentPrice`
+			,`createdAt`
+			,`updatedAt`	
+		FROM 
+			`real_estate`
+		WHERE
+			<![CDATA[
+			`area` >= #{area} and
+			`price`<= #{price} and
+			`type` = '매매'
+			 order by id desc;
+			]]>
+	</select>
+	<!-- Mapper에 @param() 가로안에 부분을 where에 쓰기. -->
  </mapper>

@@ -12,6 +12,8 @@ public class Estate { // 테이블명과 똑같이 하는게 좋음.
 	private Integer rentPrice; // 스키마보면 null이 허용됨. 그래서 int로 하면 안됨.!!!*** null이 들어가면 Integer해야됨!
 	private Date createdAt;
 	private Date updatedAt;
+	
+	
 	public int getId() {
 		return id;
 	}

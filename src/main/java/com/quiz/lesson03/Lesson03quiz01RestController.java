@@ -1,5 +1,7 @@
 package com.quiz.lesson03;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +18,7 @@ public class Lesson03quiz01RestController {
 	private EstateBO estateBO;
 	
 	
-	//http://localhost/lesson03/quiz01/1?id=20
+	//http://localhost:8080/lesson03/quiz01/1?id=20
 	@RequestMapping("/1")
 	public Estate quiz01_1 (
 		@RequestParam(value="id") int id
@@ -25,9 +27,20 @@ public class Lesson03quiz01RestController {
 	}
 		
 	@RequestMapping("/2")
-	public Estate quiz01_2 (
-		@RequestParam(value="rent_price") Integer rent_price
-		) {
-		return estateBO.getEstateByRent_Price(rent_price);
+	public List<Estate> quiz01_2 (@RequestParam(value="rentPrice") Integer rentPrice){
+		List<Estate> estateList = estateBO.getEstateListByRentPrice(rentPrice); // BO 연결
+		return estateList;
 	}
+	
+	
+	
+	@RequestMapping("/3")
+	public List<Estate> quiz01_3 (
+			@RequestParam(value="area") int area,
+			@RequestParam(value="price") int price
+			) {
+		List<Estate> estateList = estateBO.getEstateListByAreaAndPrice(area, price); // ** BO연결
+		return estateList;
+	}
+	
 }
