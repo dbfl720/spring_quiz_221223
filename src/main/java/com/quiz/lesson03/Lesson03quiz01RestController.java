@@ -27,20 +27,20 @@ public class Lesson03quiz01RestController {
 	}
 		
 	@RequestMapping("/2")
-	public List<Estate> quiz01_2 (@RequestParam(value="rentPrice") Integer rentPrice){
-		List<Estate> estateList = estateBO.getEstateListByRentPrice(rentPrice); // BO 연결
-		return estateList;
+	public List<Estate> quiz01_2 (
+			@RequestParam(value="rentPrice") int rentPrice){ // 여러건이면 무조건 List !  // null이면 안되서 int. 사실 Integer가 정확함. null 포함되어 있어서.
+		return estateBO.getEstateListByRentPrice(rentPrice);  // BO 연결
 	}
 	
 	
-	
+	//http://localhost:8080/lesson03/quiz01/3?area=90&price=130000
 	@RequestMapping("/3")
-	public List<Estate> quiz01_3 (
+	public List<Estate> quiz01_3 (    // 여러개 결과가 나온다. 혹은 [ ] 가로가 있다. 그러면 무조건 list 
 			@RequestParam(value="area") int area,
 			@RequestParam(value="price") int price
 			) {
-		List<Estate> estateList = estateBO.getEstateListByAreaAndPrice(area, price); // ** BO연결
-		return estateList;
+
+		return estateBO.getEstateListByAreaAndPrice(area, price);// ** BO연결
 	}
 	
 }

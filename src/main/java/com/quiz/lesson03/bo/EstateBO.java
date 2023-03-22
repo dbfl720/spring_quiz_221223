@@ -20,13 +20,27 @@ public class EstateBO {
 		return estateMapper.selectEstateById(id);
 	}
 	
-	public List<Estate> getEstateListByRentPrice(Integer rentPrice) {  // BO에서 select할때는 메소드명이 get으로 해야됨!! input있을 경우는 메소드명 (By + 컬럼명) 해야됨!! 
-		List<Estate> estateList = estateMapper.selectEstateListByRentPrice(rentPrice);  // ** Mapper 연결
-		return estateList;
+	// input: rentPrice    output: List<Estate>
+	public List<Estate> getEstateListByRentPrice(int rentPrice) {  // BO에서 select할때는 메소드명이 get으로 해야됨!! input있을 경우는 메소드명 (By + 컬럼명) 해야됨!! 
+		return estateMapper.selectEstateListByRentPrice(rentPrice); // ** Mapper 연결
 	}
 	
 	
-	public List<Estate> getEstateListByAreaAndPrice(int area, int price) {
+	// input: area, price     output: List<Estate>
+	public List<Estate> getEstateListByAreaAndPrice(int area, int price) {  // ByAreaPrice 해도 됨. 여러개면 And  붙이면 됨.
 		return estateMapper.selectEstateListByAreaAndPrice(area, price);
+	}
+	
+	
+	// input: Estate  output: int
+	public int addEstate(Estate estate) {
+		return estateMapper.insertEstate(estate); // *Mapper 연결
+	}
+	
+	// 	int rowCount = estateBO.addEstateAsField("썅떼빌리버 오피스텔 814호",45,"월세",100000,120);
+	public int addEstateAsField(
+			String address22, int area22, String type22,
+			int price22, int rentPrice33) {
+		return estateMapper.insertEstateAsField(address22, area22, type22, price22, rentPrice33);
 	}
 }

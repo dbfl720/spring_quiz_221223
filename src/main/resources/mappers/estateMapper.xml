@@ -26,8 +26,8 @@
  
  
  
- 
- 	<select id="selectEstateListByRentPrice" parameterType="Integer" resultType="com.quiz.lesson03.model.Estate"> 
+ 	<!--id는 겹치면 안됨. Mapper의 메소드 명과 id일치!!   -->
+ 	<select id="selectEstateListByRentPrice" parameterType="int" resultType="com.quiz.lesson03.model.Estate"> 
 		SELECT
 			`id`
 			,`realtorId`
@@ -46,11 +46,13 @@
 			]]>
 			
 	</select>
+	   <!-- #{rentPrice}  이것은, 파라미터임. `rentPrice` 이것은 실제 데이터명-->
+	  <!-- &lt;   < , &gt;  >  이것도 사용 가능하나, 가독성떨어짐,  CDATA가 가독성이 더 좋음. mybatis부등호 검색하면 많이 나옴. -->
 	
 	
-	
-	
-	<select id="selectEstateListByAreaAndPrice" parameterType="int" resultType="com.quiz.lesson03.model.Estate"> 
+	<!--콘솔 창에 실행 후 preparing 복사해서 workbench에 붙여넣어서 확인!   -->
+	<!-- @Param 어노테이션 썼기 때문에 parameterType="map"으로 해야함. -->
+	<select id="selectEstateListByAreaAndPrice" parameterType="map" resultType="com.quiz.lesson03.model.Estate"> 
 		SELECT
 			`id`
 			,`realtorId`
@@ -65,11 +67,71 @@
 			`real_estate`
 		WHERE
 			<![CDATA[
-			`area` >= #{area} and
-			`price`<= #{price} and
-			`type` = '매매'
+			`area` >= #{area} 
+			AND `price`<= #{price} 
+			AND `type` = '매매'
 			 order by id desc;
 			]]>
 	</select>
 	<!-- Mapper에 @param() 가로안에 부분을 where에 쓰기. -->
+	<!-- resutType은 select문에만 있다!!!!!   -->
+	
+	
+	
+	<!--***즉, insert할 때는 모든 컬럼 써야됨!!!!! ** 문제에서는 rentPrice 없지만 insert할 때는 써줘야됨.. null로 채워짐. -->
+	<insert id="insertEstate" parameterType="com.quiz.lesson03.model.Estate">
+		INSERT INTO `real_estate`
+		(
+			`realtorId`
+			,`address`
+			,`area`
+			,`type`
+			,`price`
+			,`rentPrice`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{realtorId}
+			,#{address}
+			,#{area}
+			,#{type}
+			,#{price}
+			,#{rentPrice}
+			,NOW()
+			,NOW()
+		)
+		
+
+	</insert>
+	
+	
+	
+	<insert id="insertEstateAsField" parameterType="map">
+		INSERT INTO `real_estate`
+		(
+			`realtorId`
+			,`address`
+			,`area`
+			,`type`
+			,`price`
+			,`rentPrice`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{realtorId}
+			,#{address}
+			,#{area}
+			,#{type}
+			,#{price}
+			,#{rentPrice}
+			,NOW()
+			,NOW()
+		)
+	
+	
+	</insert>
  </mapper>
