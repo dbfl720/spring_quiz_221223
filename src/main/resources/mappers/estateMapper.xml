@@ -107,7 +107,7 @@
 	</insert>
 	
 	
-	
+	<!-- id는  Mapper 메소드명과 동일. -->
 	<insert id="insertEstateAsField" parameterType="map">
 		INSERT INTO `real_estate`
 		(

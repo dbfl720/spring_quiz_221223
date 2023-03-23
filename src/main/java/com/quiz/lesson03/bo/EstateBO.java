@@ -37,10 +37,12 @@ public class EstateBO {
 		return estateMapper.insertEstate(estate); // *Mapper 연결
 	}
 	
+	
+	
 	// 	int rowCount = estateBO.addEstateAsField("썅떼빌리버 오피스텔 814호",45,"월세",100000,120);
 	public int addEstateAsField(
-			String address22, int area22, String type22,
+		    int  realtorId, String address22, int area22, String type22,
 			int price22, int rentPrice33) {
-		return estateMapper.insertEstateAsField(address22, area22, type22, price22, rentPrice33);
+		return estateMapper.insertEstateAsField( realtorId, address22, area22, type22, price22, rentPrice33); // ** Mapper연결
 	}
 }

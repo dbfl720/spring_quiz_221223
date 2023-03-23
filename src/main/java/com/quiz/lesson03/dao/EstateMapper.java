@@ -25,8 +25,10 @@ public interface EstateMapper {
 	public int insertEstate(Estate estate); // 하나라서 @Param 안써도 됨.
 
 	
+	// @Param이 있기 때문에 하나의 map이 xml로 넘어간다.
+	// ** 여기서 중요한 것은 @Param() 안에 있는 단어가 중요 이거는 xml에서 ,#{}에 사용된 이름명임!!!. 옆에는 변수명이라 아무거나 해도됨. 
 	public int insertEstateAsField(
-			@Param("realtorId") int realtorId88,
+			@Param("realtorId") int  realtorId,
 			@Param("address") String address33,
 			@Param("area") int area33,
 			@Param("type") String type55,
