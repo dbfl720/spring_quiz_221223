@@ -33,9 +33,16 @@ public interface EstateMapper {
 			@Param("area") int area33,
 			@Param("type") String type55,
 			@Param("price") int price11,
-			@Param("rentPrice") int price22);
+			@Param("rentPrice") Integer rentPrice22);
 	
 	
 
+	public int updateEstateById(
+			@Param("id") int id,
+			@Param("type") String type,
+			@Param("price") int price);
 	
+	
+	
+	public void deleteEstateById(int id);
 }

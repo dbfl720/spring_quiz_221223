@@ -36,11 +36,12 @@ public class Lesson03Quiz02RestController {
 	
 	
 	// field로 insert하기
-	// localhost:8080/lesson03/quiz02/2
+	// localhost:8080/lesson03/quiz02/2?
 	@RequestMapping("/2")
-	public String quiz02_2(
-			@RequestParam ("realtorId") int  realtorId) {  // realtorId만 parameter롤 통해서 전달. //필수 파라미터  두개이상일때는 value써야됨,하나일때는 value생략.
-		int rowCount = estateBO.addEstateAsField( realtorId,"썅떼빌리버 오피스텔 814호",45,"월세",100000,120); // **BO 연결, //입력 성공한 한 행의 개수가 저장.
+	public String quiz02_2( // @RequestParam("") - 주소 쓸 때 쓰이는 파라미터 / Integer  realtorId - 변수명 
+			@RequestParam ("realtorId") Integer  realtorId) {  // realtorId만 parameter롤 통해서 전달. //필수 파라미터  두개이상일때는 value써야됨,하나일때는 value생략.
+		int rowCount = estateBO.addEstateAsField( realtorId, "썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120); // **BO 연결, //입력 성공한 한 행의 개수가 저장.
+		// ?? 한행이 어떻게 숫자로.. ? 성공한 행의 개수 
 		return "입력 성공: " + rowCount;
 	}
 }

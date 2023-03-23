@@ -108,6 +108,8 @@
 	
 	
 	<!-- id는  Mapper 메소드명과 동일. -->
+	<!-- @Param 어노테이션에 정의된 이름들로 xml에서 동적으로 값을 세팅한다. -->
+	<!-- xml에서는 파라미터들을 map으로 받으면 된다. -->
 	<insert id="insertEstateAsField" parameterType="map">
 		INSERT INTO `real_estate`
 		(
@@ -134,4 +136,30 @@
 	
 	
 	</insert>
+	
+	
+	
+	<!-- update 사용할 때는 updatedAt 꼭 써야한다. -->
+	<update id="updateEstateById" parameterType="map">
+		UPDATE `real_estate`
+		SET 
+			`type` = #{type}
+			,`price` = #{price}
+			,`updatedAt` = NOW()
+		WHERE
+		 	`id` = #{id}
+	
+	</update>
+	
+	
+	<!-- 동적 쿼리 #{} -->
+	<delete id="deleteEstateById" parameterType="int"> 
+		DELETE
+		FROM
+			`real_estate`
+		WHERE
+			`id` = #{id}
+			
+
+	</delete>
  </mapper>
