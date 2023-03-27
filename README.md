@@ -12,7 +12,7 @@ Failed to parse the expression [${}]
 
 javax.el.ELException: Failed to parse the expression [${}]
 
- 
+ <br><br>
  
  
 
@@ -26,7 +26,7 @@ org.apache.el.parser.ParseException: Encountered " "}" "} "" at line 1, column 3
 <br><br>
 
 
-* 🌾 원인 : 주석처리 부분에 ${} 쓰여져 있었음.
+* 🌾 원인 : 주석 부분에 ${} 쓰여져 있었음.
 
 * 🌾 해결 방법 : ${} 제거.
 
