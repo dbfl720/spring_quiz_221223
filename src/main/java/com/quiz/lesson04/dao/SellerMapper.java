@@ -20,5 +20,5 @@ public interface SellerMapper {
 	
 	
 	
-	public Seller selectLatestSellerById(@Param("id") Integer id);
+	public Seller selectSellerById(int id);
 }

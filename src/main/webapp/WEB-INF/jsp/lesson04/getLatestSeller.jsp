@@ -11,10 +11,10 @@
 </head>
 <body>
 	<div class="container">
-		<h1>${information}</h1> 
-		<img src="${seller.profileImageUrl}" alt="이미지" width="250" height="200"> <!--getter가 내부적으로 불려짐 -->
+		<h1>판매자 정보</h1> 
+		<img src="${seller.profileImageUrl}" alt="판매자 프로필 사진" width="250" height="200"> <!--getter가 내부적으로 불려짐 -->
 		<div class="display-3">${seller.nickname}</div>
-		<h2 class="text-warning ">${seller.temperature}</h2>
+		<h2 class="text-warning font-weight-bold display-4">${seller.temperature}</h2>  <!-- seller + 필드명 (db)  -->
 	</div>
 </body>
 </html>

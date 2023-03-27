@@ -25,7 +25,7 @@ public class SellerBO {
 	}
 	
 	
-	public Seller getLatestSellerById(Integer id) {
-		return sellerMapper.selectLatestSellerById(id);
+	public Seller getSellerById(int id) {  // bo는 꼭 id가 있어야 되서 int로 한다.
+		return sellerMapper.selectSellerById(id);
 	}
 }
