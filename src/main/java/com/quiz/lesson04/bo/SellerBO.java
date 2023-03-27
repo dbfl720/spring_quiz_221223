@@ -23,4 +23,9 @@ public class SellerBO {
 	public Seller getLatestSeller() {
 		return sellerMapper.selectLatestSeller();
 	}
+	
+	
+	public Seller getLatestSellerById(Integer id) {
+		return sellerMapper.selectLatestSellerById(id);
+	}
 }

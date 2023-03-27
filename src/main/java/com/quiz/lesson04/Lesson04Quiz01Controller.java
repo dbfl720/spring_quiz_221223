@@ -1,5 +1,7 @@
 package com.quiz.lesson04;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +34,7 @@ public class Lesson04Quiz01Controller {
 	
 	// 1. 처음 확인해야 할 것 - return문에 브레이크 포인트 걸고, 입력성공 페이지가 넘어오는데 return문 만들어서 확인해야함.
 	// form태그 이용하기 때문에 무조건 PostMapping 
-	@PostMapping("/add_seller_view")
+	@PostMapping("/add_seller_view") // @PostMapping - 주소창에 파라미터가 노출되지 않는다.
 	public String addSeller(
 			// jsp -  name과 일치하게 @RequestParam 지정해랏!
 			@RequestParam("nickname") String nickname,
@@ -51,7 +53,8 @@ public class Lesson04Quiz01Controller {
 			
 			
 	
-	
+
+
 	
 	
 	// 최신 가입자
@@ -68,6 +71,31 @@ public class Lesson04Quiz01Controller {
 			
 		
 	
+
+	// 최신 가입자
+		// localhost:8080/lesson04/quiz01/seller_info
+		@RequestMapping("/seller_info") 
+		public String getLatestSellerViewById(
+				@RequestParam(value=("id"), required = false) Integer id, 
+				Model model) { // Integer : 기본타입을 객체로 다루기 위해 사용하는 래퍼 클래스.(null값 처리 가능)
+							// Model : view에게 데이터를 전달할 때 사용.
+			
+			if(id != null) {
+				Seller seller = sellerBO.getLatestSellerById(id);
+				model.addAttribute("seller", seller); // 명칭 아무렇게 써도 됨. 하지만 view화면(jsp)에서 꺼낼때는 이 명칭으로 꺼냄. 
+				model.addAttribute("information", "판매자 정보");
+			} else {
+				Seller seller = sellerBO.getLatestSeller();
+				model.addAttribute("seller", seller); // 명칭 아무렇게 써도 됨. 하지만 view화면(jsp)에서 꺼낼때는 이 명칭으로 꺼냄. 
+				model.addAttribute("information", "판매자 정보");
+			}
+		
+			return "lesson04/getLatestSeller";
+
+		}
 	
+	
+
+
 
 }
