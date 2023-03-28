@@ -8,4 +8,7 @@ import com.quiz.lesson04.model.Realtor;
 public interface RealtorMapper {
 	
 	public void insertRealtor(Realtor realtor);
+	
+	
+	public Realtor selectRealtorById(int id);
 }

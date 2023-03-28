@@ -75,7 +75,7 @@ public class Lesson04Quiz01Controller {
 	// 최신 가입자
 		// localhost:8080/lesson04/quiz01/seller_info
 		// localhost:8080/lesson04/quiz01/seller_info?id=2 
-		@GetMapping("/seller_info") // !!!RequestMapping에서는 한 프로젝트에서 똑같은 매핑으로 걸면 어디로 접속해야 할 지 모르기 때문에 한 주소만 써야됨. 
+		@RequestMapping("/seller_info") // !!!RequestMapping에서는 한 프로젝트에서 똑같은 매핑으로 걸면 어디로 접속해야 할 지 모르기 때문에 한 주소만 써야됨. 
 		public String getLatestSellerViewById(
 				@RequestParam(value=("id"), required = false) Integer id, // 비필수(안 올수도 있다.)
 				Model model) { // Integer : 기본타입을 객체로 다루기 위해 사용하는 래퍼 클래스.(null값 처리 가능)

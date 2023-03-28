@@ -13,6 +13,11 @@ public class RealtorBO {
 	private RealtorMapper realtorMapper;
 	
 	public void addRealtor(Realtor realtor) { // insert 하고 돌려주는거 없어서 void // 자료형 객체명 
-		
+		realtorMapper.insertRealtor(realtor);   // **Mapper연결
+	}
+	
+	
+	public Realtor getRealtorById(int id) {
+		return realtorMapper.selectRealtorById(id) ;
 	}
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!-- dtd문법 -->
  
- 
+
  <mapper namespace="com.quiz.lesson04.dao.RealtorMapper">
  	<insert id="insertRealtor" parameterType="com.quiz.lesson04.model.Realtor"
      useGeneratedKeys="true" keyProperty="id"> <!--useGeneratedKeys : key를 돌려받는걸 사용하겠다.원래는 false임. keyProperty : 키 이름은 id이다. (변수 이름 - id)-->
@@ -27,9 +27,26 @@
  		,NOW()
 
  	)
- 	
+ 
  	
  	
  	</insert>
+ 	
+ 	
+ 	
+ 	<select id="selectRealtorById" parameterType="int" resultType="com.quiz.lesson04.model.Realtor">
+ 		SELECT
+ 			 `id`
+			,`office`
+			,`phoneNumber`
+			,`address`
+			,`grade`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`realtor`
+		WHERE
+			`id` = #{id}	
+ 	</select>
  
  </mapper>
