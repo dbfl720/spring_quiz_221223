@@ -11,27 +11,47 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>HOT5</h1>
-	<table class="table text-center">
-		<thead>
-			<tr>
-				<th>이름</th>
-				<th>전화 번호</th>
-				<th>등급</th>
-				<th>포인트</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${members}" var="member" varStatus="status">
+<div class="container">
+	<h1>멤버십</h1>
+		<table class="table text-center">
+			<thead>
 				<tr>
-					<td>${member.name}</td>
-					<td>${member.phoneNumber}</td>
-					<td>${member.grade}</td>
-					<td>${member.point}</td>
+					<th>이름</th>
+					<th>전화 번호</th>
+					<th>등급</th>
+					<th>포인트</th>
 				</tr>
-			</c:forEach>
-	</table>
-</tbody>
-	
+			</thead>
+			<tbody>
+				<c:forEach items="${members}" var="member" varStatus="status">
+					<tr>
+						<td>${member.name}</td>
+						<td>${member.phoneNumber}</td>
+						<c:choose>
+							<c:when test="${member.grade eq 'VIP'}">
+								<td class="text-danger">${member.grade}</td>
+							</c:when>
+							<c:when test="${member.grade eq 'GOLD'}">
+								<td class="text-warning">${member.grade}</td>
+							</c:when>
+							<c:otherwise>
+								<td>${member.grade}</td>
+							</c:otherwise>
+						</c:choose>
+						
+						<c:choose>
+							<c:when test="${member.point >= 5000}">
+								<td class="text-primary">${member.point}</td>
+							</c:when>	
+							<c:otherwise>
+								<td>${member.point}</td>
+							</c:otherwise>
+						</c:choose>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		
+	</div>
 </body>
 </html>
