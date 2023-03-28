@@ -2,6 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!-- dtd문법 -->
  
+<!--  MyBatis 문법
+방금 insert된 pk 값 가져오기
+id와 같은 PK값은 데이터를 추가한 후에 DB에서 얻어내야 한다.
+
+useGeneratedKeys 속성과 keyProperty 속성을 사용하여 pk를 얻어낼 수 있다.
+useGeneratedKeys: true로 설정
+keyProperty: Primary Key가 되는 필드명
+insert 시 parameterType이 DTO 객체여야 한다.
+key로 설정된 필드와 일치하는 DTO 객체의 필드에 pk값이 들어가게 된다. -->
 
  <mapper namespace="com.quiz.lesson04.dao.RealtorMapper">
  	<insert id="insertRealtor" parameterType="com.quiz.lesson04.model.Realtor"
