@@ -18,6 +18,8 @@
 
  ![스크린샷 2023-03-28 오후 3 16 43](https://user-images.githubusercontent.com/116433637/228149926-7b9758c7-214b-4293-ba2b-6d3fb8a82ee5.png)
  <br><br>
+ ![스크린샷 2023-03-28 오후 3 47 38](https://user-images.githubusercontent.com/116433637/228151702-a790252e-d389-431f-9998-b09591717cfa.png)
+  <br><br>
 ![스크린샷 2023-03-28 오후 3 19 35](https://user-images.githubusercontent.com/116433637/228150700-2e506090-8a11-4145-8b27-c87d091a046f.png)
 
 
