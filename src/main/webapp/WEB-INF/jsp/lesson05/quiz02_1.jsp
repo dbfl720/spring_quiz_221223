@@ -27,26 +27,30 @@
 					<tr>
 						<td>${member.name}</td>
 						<td>${member.phoneNumber}</td>
+						<td>
 						<c:choose>
 							<c:when test="${member.grade eq 'VIP'}">
-								<td class="text-danger">${member.grade}</td>
+								<span class="text-danger">${member.grade}</span>
 							</c:when>
 							<c:when test="${member.grade eq 'GOLD'}">
-								<td class="text-warning">${member.grade}</td>
+								<span class="text-warning">${member.grade}</span>
 							</c:when>
 							<c:otherwise>
-								<td>${member.grade}</td>
+								${member.grade}
 							</c:otherwise>
 						</c:choose>
-						
+						</td>
+					
+						<td>
 						<c:choose>
 							<c:when test="${member.point >= 5000}">
-								<td class="text-primary">${member.point}</td>
+								<span class="text-primary">${member.point}P</span>
 							</c:when>	
 							<c:otherwise>
-								<td>${member.point}</td>
+								<span>${member.point}P</span>
 							</c:otherwise>
 						</c:choose>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
