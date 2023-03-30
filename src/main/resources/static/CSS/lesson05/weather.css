@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
 
-#wrap{height: 1200px; width:1000px;}
-aside{height: 1200px;}
-section {height: 1200px;}
+#wrap{height: 900px; }
+.aside1{height: 900px; background-color:#5882FA;}
+
+nav{height: 500px; background-color:#5882FA;}
+section {height: 900px;}
+footer{height: 150px;}
