@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.quiz.lesson05.model.Member;
+
 @RequestMapping("/lesson05")
 @Controller
 public class Lesson05Controller {
@@ -185,7 +187,7 @@ public class Lesson05Controller {
 			member.setIntroduce("내 수염 좀 멋있는 듯");
 			members.add(member);
 			
-			model.addAttribute("members", members);
+			model.addAttribute("members", members); // 반복문은 list만 돌릴 수 있고, map 불가능.
 			
 			return "/lesson05/quiz04";
 		}
