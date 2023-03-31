@@ -20,7 +20,7 @@ nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expect
 
 * 🌾 원인 :List로 담아서 output을 해야하는데 한 행으로 output을 했기에 TooManyResultsException 발생.
 
-* 🌾 해결 방법 : BO, Mapper, controller 모두,  output을 list로 만든다. 
+* 🌾 해결 방법 : BO, Mapper, controller 메소드들을 ,  output을 list로 만든다. 
 
  <br><br>
 <전> <br>
