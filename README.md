@@ -28,9 +28,9 @@ nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expect
 ![스크린샷 2023-03-31 오후 12 00 36](https://user-images.githubusercontent.com/116433637/229156419-dc39b0ae-57d2-4291-85fe-51d4b0d989e5.png) <br><br>
 
 <후> <br>
-![스크린샷 2023-03-31 오전 11 59 08](https://user-images.githubusercontent.com/116433637/229156492-b8903e63-3c94-46d0-a354-677e2b070aae.png)
-![스크린샷 2023-03-31 오전 11 59 48](https://user-images.githubusercontent.com/116433637/229156502-1a57900f-7faa-4b60-be90-4cf01b6851ea.png)
-![스크린샷 2023-03-31 오전 11 59 28](https://user-images.githubusercontent.com/116433637/229156506-e7f3ecc8-b5e6-400e-94d2-dccc5e06b591.png)
+![스크린샷 2023-03-31 오전 11 59 08](https://user-images.githubusercontent.com/116433637/229156492-b8903e63-3c94-46d0-a354-677e2b070aae.png) <br>
+![스크린샷 2023-03-31 오전 11 59 48](https://user-images.githubusercontent.com/116433637/229156502-1a57900f-7faa-4b60-be90-4cf01b6851ea.png)<br>
+![스크린샷 2023-03-31 오전 11 59 28](https://user-images.githubusercontent.com/116433637/229156506-e7f3ecc8-b5e6-400e-94d2-dccc5e06b591.png)<br>
 
 
 <br><br><br><br><br>
