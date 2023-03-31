@@ -20,8 +20,8 @@
 							<td>${weatherPast.date}</td>
 							<td>
 								<c:choose>
-									<c:when test="${fn:startsWith(weatherPast.weather, '비')}">
-										<img src="/img/rainy.jpg" alt="날씨 이미지" width="40" height="40" >
+									<c:when test="${fn:startsWith(weatherPast.weather, '비')}"> <%-- 한글은 작음따옴표 편함. ('') --%>
+										<img src="/img/rainy.jpg" alt="날씨 이미지" width="40" height="40" > <%-- static 까지는 자동 인식 된다. --%>
 									</c:when>
 									<c:when test="${fn:startsWith(weatherPast.weather, '흐림')}">
 										<img src="/img/cloudy.jpg" alt="날씨 이미지" width="40" height="40" >
@@ -29,7 +29,7 @@
 									<c:when test="${fn:startsWith(weatherPast.weather, '맑음')}">
 										<img src="/img/sunny.jpg" alt="날씨 이미지" width="40" height="40" >
 									</c:when>
-									<c:otherwise>
+									<c:otherwise> <%-- 날씨가 다른게 추가 될수 도 있어서 otherwise보다는 when으로 하는게 좋다. // 또한 otherwise 다시 추가해서 나중에 추가할게 있을 수 있으니 차선책. --%>
 								    	<img src="/img/partlyCloudy.jpg" alt="날씨 이미지" width="40" height="40" >
 									</c:otherwise>
 								</c:choose>

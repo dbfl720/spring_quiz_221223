@@ -5,12 +5,12 @@
 
 
 <h1>날씨 입력</h1>
-	<form method="post" action="/weather/weatherHistory_insert_layout">  <%-- 이 주소가 insert. --%>
+	<form method="post" action="/weather/weatherHistory_insert_layout">  <%-- 이 주소가 insert. postMatting 주소가 여기 들어감.--%>
 		
 		<div class="d-flex justify-content-between align-items-center">
 		<div class="d-flex"> 날짜 <input name="date" type="text" class="form-control col-10 ml-2" ></div>
 		<div class="d-flex ml-3"> 날씨
-			<select name="weather" id= "weather" class="d-flex form-select-sm form-control form-select ml-2">
+			<select name="weather" id= "weather" class="d-flex form-select-sm form-control form-select ml-2"> <%-- name은 필드명과 같아야 한다. --%>
 						<option  value="맑음">맑음</option>			
 						<option  value="비">비</option>			
 						<option  value="흐림">흐림</option>			
@@ -40,3 +40,10 @@
 		</div>
 		<button class="btn btn-secondary"  type="submit">저장</button>
 	</form>
+	
+	
+	<%-- jquery는 id로 하는게 편함. --%>
+	<%-- 스크립트가 들어가면 무조건 검사를 봐야함.  datepicker  import  해야됨. --%>
+	<script> 
+		
+	</script>

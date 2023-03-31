@@ -2,6 +2,7 @@ package com.quiz.lesson05.model;
 
 import java.util.Date;
 
+// not null -> 타입을 소문자로 씀! ex) int, dounble. float..
 public class WeatherHistory {
 
 		private int id;

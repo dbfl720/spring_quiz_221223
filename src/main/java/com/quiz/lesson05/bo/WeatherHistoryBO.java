@@ -15,6 +15,7 @@ public class WeatherHistoryBO {
 	@Autowired
 	private WeatherMapper weatherMapper;
 	
+	// input:x   output: List<WeatherHistory> 
 	public List<WeatherHistory> getWeather() { 
 		return weatherMapper.selectWeather();  // ** Mapper 연결
 	}
@@ -22,7 +23,7 @@ public class WeatherHistoryBO {
 	
 	// output: x   // input: weatherHistory 
 	public void addWeather(WeatherHistory weatherHistory) { 
-		weatherMapper.insertWeather(weatherHistory);  // ** Mapper 연결
+		weatherMapper.insertWeather(weatherHistory);  // ** Mapper 연결  // 순서도 체크해야됨 param 했으면.
 			
 	}		
 	

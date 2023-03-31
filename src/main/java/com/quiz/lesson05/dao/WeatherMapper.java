@@ -13,6 +13,7 @@ public interface WeatherMapper {
 	public List<WeatherHistory> selectWeather();
 	
 	
+	// 파라미터가 여러개이면 한줄 씩 하는게 좋음.
 	// insert 
 	public void insertWeather (WeatherHistory weatherHistory);
 	

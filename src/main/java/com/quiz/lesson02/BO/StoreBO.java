@@ -18,4 +18,7 @@ public class StoreBO {
 	public List<Store> getStoreList() {  // ** 메소드명은 (get + ____) // select 할때 get으로 이름을 지은다.
 		return storeMapper.selectStoreList();  //**Mapper와 연결
 	}
+	
+	
+	
 }
