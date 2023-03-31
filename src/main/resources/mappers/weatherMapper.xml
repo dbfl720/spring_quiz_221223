@@ -3,6 +3,50 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!-- dtd문법 -->
  
  
- <mapper namespace="">
- 
+ <mapper namespace="com.quiz.lesson05.dao.WeatherMapper">
+ 		<select id="selectWeather" resultType="com.quiz.lesson05.model.WeatherHistory">
+ 		SELECT
+ 			`id`
+ 			,`date`
+ 			,`weather`
+ 			,`temperatures`
+ 			,`precipitation`
+ 			,`microDust`
+ 			,`windSpeed`
+ 			,`createdAt`
+ 			,`updatedAt`
+		FROM
+			`weather_history`
+ 		</select>
+ 		
+ 		
+ 		<insert id="insertWeather" parameterType="com.quiz.lesson05.model.WeatherHistory">
+ 		
+ 			INSERT INTO `weather_history`
+ 			(
+				`date`
+	 			,`weather`
+	 			,`temperatures`
+	 			,`precipitation`
+	 			,`microDust`
+	 			,`windSpeed`
+	 			,`createdAt`
+	 			,`updatedAt`
+ 					
+ 			)
+ 			VALUES
+ 			(
+ 				#{date}
+ 				,#{weather}
+ 				,#{temperatures}
+ 				,#{precipitation}
+ 				,#{microDust}
+ 				,#{windSpeed}
+ 				,NOW()
+ 				,NOW()
+ 			
+ 			)
+ 			
+
+ 		</insert>
  </mapper>

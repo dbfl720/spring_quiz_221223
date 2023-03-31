@@ -8,5 +8,4 @@ nav{height: 500px; background-color:#FAFAFA}
 .nav-item { list-style:none; font-weight: bold; margin-top : 50px; font-size: 20px;}
 a:hover { text-decoration:none; }
 section {height: 1050px;  background-color: #F2F2F2}
-.form-select {width : 230px;}
 footer{height: 100px;}
