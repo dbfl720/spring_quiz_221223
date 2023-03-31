@@ -10,7 +10,7 @@ Fri Mar 31 11:35:23 KST 2023
 
 There was an unexpected error (type=Internal Server Error, status=500).
 
-nested exception is org.apache.ibatis.exceptions.<span style="color:yellow">TooManyResultsException</span>: Expected one result (or null) to be returned by selectOne(), but found: 14
+nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 14
 
 
  <br><br>
