@@ -1,5 +1,47 @@
 
 
+
+#  🌳 에러 코드
+Whitelabel Error Page
+
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Fri Mar 31 11:35:23 KST 2023
+
+There was an unexpected error (type=Internal Server Error, status=500).
+
+nested exception is org.apache.ibatis.exceptions.<span style="color:yellow">TooManyResultsException</span>: Expected one result (or null) to be returned by selectOne(), but found: 14
+
+
+ <br><br>
+ 
+ 
+
+
+* 🌾 원인 :List로 담아서 output을 해야하는데 한 행으로 output을 했기에 TooManyResultsException 발생.
+
+* 🌾 해결 방법 : BO, Mapper, controller 모두,  output을 list로 만든다. 
+
+ <br><br>
+<전> <br>
+
+![스크린샷 2023-03-31 오후 12 00 36](https://user-images.githubusercontent.com/116433637/229156419-dc39b0ae-57d2-4291-85fe-51d4b0d989e5.png) <br><br>
+
+<후> <br>
+![스크린샷 2023-03-31 오전 11 59 08](https://user-images.githubusercontent.com/116433637/229156492-b8903e63-3c94-46d0-a354-677e2b070aae.png)
+![스크린샷 2023-03-31 오전 11 59 48](https://user-images.githubusercontent.com/116433637/229156502-1a57900f-7faa-4b60-be90-4cf01b6851ea.png)
+![스크린샷 2023-03-31 오전 11 59 28](https://user-images.githubusercontent.com/116433637/229156506-e7f3ecc8-b5e6-400e-94d2-dccc5e06b591.png)
+
+
+<br><br><br><br><br>
+
+
+
+
+
+
+
+
 #  🌳 에러 코드
 * 🌾 에러  - model.addAttribute() 값이 넘어오지 않고 null로 됨.
 
