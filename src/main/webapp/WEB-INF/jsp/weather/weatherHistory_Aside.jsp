@@ -15,7 +15,7 @@
 						<li class="btn6 text-dark btn first"><a href="#">관측 기후</a></li>
 					</ul>
 				</nav>
-				
+				   
 
 				
 <script>
