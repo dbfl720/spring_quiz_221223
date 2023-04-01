@@ -1,6 +1,30 @@
 
-# 🌷🌷 JSTL를 이용한 기상청 사이트 만들기<br><br>
-<img src="https://img.shields.io/badge/javaScript-F7DF1E?style=flat-square&logo=javasSript.svg&logoColor=white"/>
+<div align=center><h1>📚 STACKS</h1></div>
+
+
+
+<div align=center>
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black">
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
+<img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"> 
+ <br>
+
+<img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white">
+<br>
+<img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=for-the-badge&logo=Apache Tomcat&logoColor=black">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=black">
+<img src="https://img.shields.io/badge/Eclipse IDE-2C2255?style=for-the-badge&logo=Eclipse IDE&logoColor=black">
+
+</div>
+<br><br><br><br><br><br><br><br><br>
+
+
+# 🌿 JSTL를 이용한 기상청 사이트 만들기<br><br>
 
 https://user-images.githubusercontent.com/116433637/229274546-4e3c00b2-9895-4117-a7a3-493903d98424.mp4
 
@@ -14,18 +38,19 @@ https://user-images.githubusercontent.com/116433637/229274546-4e3c00b2-9895-4117
 
 
 
-* JSTL를 이용한 기상청 사이트 정보
-- 1. 날씨 정보 페이지
--weather_history table 을 활용해서 아래와 같은 페이지를 만드세요.
-- jstl 을 활용해서 날짜 포멧을 맞춰서 출력하세요.
-- 기상청 로고는 인터넷에서 이미지 링크를 구해서 사용하세요.
-- 날씨에 맞는 이미지를 표시하세요. 
-- 2. 날씨 입력 페이지
-- 날씨 정보를 입력 받고 DB에 저장 하는 아래와 같은 페이지를 만드세요.
-- 입력이 성공한 뒤에는 위에서 만든 날씨 정보 페이지로 redirect 시키세요.
-- datepicker 라이브러리를 사용해보세요.
+### 🌿<b>JSTL를 이용해 사용한 기술들</b>
 
+> 1. 날씨 정보 페이지
+> weather_history table 을 활용해서 아래와 같은 페이지를 만드세요. <br>
+> jstl 을 활용해서 날짜 포멧을 맞춰서 출력하세요. <br>
+> 기상청 로고는 인터넷에서 이미지 링크를 구해서 사용하세요. <br>
+> 날씨에 맞는 이미지를 표시하세요.  <br>
+> 2. 날씨 입력 페이지 <br>
+> 날씨 정보를 입력 받고 DB에 저장 하는 아래와 같은 페이지를 만드세요. <br>
+> 입력이 성공한 뒤에는 위에서 만든 날씨 정보 페이지로 redirect 시키세요. <br>
+> datepicker 라이브러리를 사용해보세요. <br>
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
@@ -62,7 +87,7 @@ String(view) -> date(DB) -> date (select) // DB에서는 date이지만, 저장�
 
 
 
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
@@ -114,8 +139,7 @@ nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expect
 ![스크린샷 2023-03-31 오전 11 59 48](https://user-images.githubusercontent.com/116433637/229156502-1a57900f-7faa-4b60-be90-4cf01b6851ea.png)<br>
 ![스크린샷 2023-03-31 오전 11 59 28](https://user-images.githubusercontent.com/116433637/229156506-e7f3ecc8-b5e6-400e-94d2-dccc5e06b591.png)<br>
 
-
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
@@ -146,9 +170,7 @@ nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expect
   <br><br>
 ![스크린샷 2023-03-28 오후 3 19 35](https://user-images.githubusercontent.com/116433637/228150700-2e506090-8a11-4145-8b27-c87d091a046f.png)
 
-
-
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
