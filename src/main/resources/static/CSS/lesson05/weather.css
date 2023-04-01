@@ -29,6 +29,7 @@ nav{height: 500px; background-color:#FAFAFA}
   width:100%;
 }
 
+   
 .btn6::after {
   content: '';
   position: absolute;
