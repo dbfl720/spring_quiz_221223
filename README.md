@@ -1,4 +1,34 @@
 
+# 🌷🌷 JSTL를 이용한 기상청 사이트 만들기<br><br>
+<img src="https://img.shields.io/badge/javaScript-F7DF1E?style=flat-square&logo=javasSript.svg&logoColor=white"/>
+
+https://user-images.githubusercontent.com/116433637/229274546-4e3c00b2-9895-4117-a7a3-493903d98424.mp4
+
+<br><br><br>
+
+![스크린샷 2023-04-01 오후 5 14 36](https://user-images.githubusercontent.com/116433637/229274623-0561936b-2507-4dd4-8c31-35aec6d766ac.png) 
+
+<br><br><br>
+
+![스크린샷 2023-04-01 오후 5 14 51](https://user-images.githubusercontent.com/116433637/229274624-c818a4f1-37dd-4699-b41d-6036adac464b.png) <br><br>
+
+
+
+* JSTL를 이용한 기상청 사이트 정보
+- 1. 날씨 정보 페이지
+-weather_history table 을 활용해서 아래와 같은 페이지를 만드세요.
+- jstl 을 활용해서 날짜 포멧을 맞춰서 출력하세요.
+- 기상청 로고는 인터넷에서 이미지 링크를 구해서 사용하세요.
+- 날씨에 맞는 이미지를 표시하세요. 
+- 2. 날씨 입력 페이지
+- 날씨 정보를 입력 받고 DB에 저장 하는 아래와 같은 페이지를 만드세요.
+- 입력이 성공한 뒤에는 위에서 만든 날씨 정보 페이지로 redirect 시키세요.
+- datepicker 라이브러리를 사용해보세요.
+
+
+
+
+
 
 #  🌳 에러 코드
 org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors Field error in object 'weatherHistory' on field 'date': rejected value [2023-04-19]; codes [typeMismatch.weatherHistory.date,typeMismatch.date,typeMismatch.java.util.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [weatherHistory.date,date]; arguments []; default message [date]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.Date' for property 'date'; nested exception is org.springframework.core.convert.ConversionFailedException: **Failed to convert from type [java.lang.String] to type [java.util.Date] for value '2023-04-19'; nested exception is java.lang.IllegalArgumentException]**
