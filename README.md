@@ -19,13 +19,13 @@ org.springframework.validation.BindException: org.springframework.validation.Bea
 String(view) -> date(DB) -> date (select) // DB에서는 date이지만, 저장할때 String 타입으로 하면, DB에서 date객체로 저장됨. <br>
 
  <br><br>
-<전> <br>
+**<전>** <br>
 ![스크린샷 2023-04-01 오전 10 31 35](https://user-images.githubusercontent.com/116433637/229264373-69f5bee8-e89d-4cc3-b7b6-27d514067d21.png)<br>
 ![스크린샷 2023-04-01 오전 10 06 30](https://user-images.githubusercontent.com/116433637/229264376-58652f80-64a8-4f32-9dc1-018ef978f2ac.png)
 
  <br><br>
 
-<후> <br>
+**<후>** <br>
 ![스크린샷 2023-04-01 오후 12 48 01](https://user-images.githubusercontent.com/116433637/229264409-31ff5d9b-6105-46c5-96d1-74cbdd4a2145.png)
 
  <br>
