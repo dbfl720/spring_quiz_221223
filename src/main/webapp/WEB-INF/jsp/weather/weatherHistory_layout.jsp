@@ -20,6 +20,8 @@
 	crossorigin="anonymous"></script>
 
 
+
+
 <link rel="stylesheet" type="text/css" href="/CSS/lesson05/weather.css">
 </head>
 <body>

@@ -1,14 +1,17 @@
 package com.quiz.lesson05;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quiz.lesson05.bo.WeatherHistoryBO;
 import com.quiz.lesson05.model.WeatherHistory;
@@ -46,7 +49,10 @@ public class WeatherHistoryController {
 	}
 	
 	
-	// 컨트롤러는 메소드를 바깥을 보내서 http 로 받아야 됨. 
+	
+	
+	
+	// 컨트롤러는 자기자신 메소드를 부르면 안됨. 무조건, 바깥에서 http 로  요청이 들어와야됨. 
 	// 선생님은 @RequestParam이 더 익숙하심. - api팀들이 @RequestParam 다 쓰는걸 좋아함.
 	// 400 에러는 파라미터 혹은 보내는주소 받는 주속 확인!!  
 	// localhost:8080/weather/weatherHistory_insert_layout
@@ -64,6 +70,11 @@ public class WeatherHistoryController {
 		// model x 
 		
 		// redirect: 목록 페이지 
-		return "redirect:/weather/weatherHistory_layout";    // 
+		return "redirect:/weather/weatherHistory_layout";    // /weather부터 써줘야됨! 위에 requestMapping 부터 ! 
 	}
+	
+	
+
+	
+
 }

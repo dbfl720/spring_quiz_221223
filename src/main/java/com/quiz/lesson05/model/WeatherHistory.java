@@ -2,11 +2,14 @@ package com.quiz.lesson05.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 // not null -> 타입을 소문자로 씀! ex) int, dounble. float..
 public class WeatherHistory {
 
 		private int id;
-		private String date;
+		//@DateTimeFormat(pattern = "yyyy-MM-dd")  
+		private String date;			// String(view) -> date(DB) -> date (select) // DB에서는 date이지만, 저장할때 String 타입으로 하면, DB에서 date객체로 저장됨.
 		private String weather;
 		private float temperatures;
 		private float precipitation;
@@ -73,7 +76,6 @@ public class WeatherHistory {
 		
 		
 		
-		
-		
+	
 		
 }
