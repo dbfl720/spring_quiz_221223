@@ -1,5 +1,57 @@
 
 
+#  🌳 에러 코드
+org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors Field error in object 'weatherHistory' on field 'date': rejected value [2023-04-19]; codes [typeMismatch.weatherHistory.date,typeMismatch.date,typeMismatch.java.util.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [weatherHistory.date,date]; arguments []; default message [date]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.Date' for property 'date'; nested exception is org.springframework.core.convert.ConversionFailedException: **Failed to convert from type [java.lang.String] to type [java.util.Date] for value '2023-04-19'; nested exception is java.lang.IllegalArgumentException]**
+
+
+ <br><br>
+ 
+ 
+
+* 🌾 원인 : DB - date 타입이고, view - String 타입으로 요청이 되기 때문에 변환하는 과정에서 충돌.
+
+* 🌾 해결 방법 : model에서 저장할 때, 필드를 String 타입으로 변환. DB에서는 내부적으로, 저장할때 String 타입 -> Date 타입으로 변환된다.  view로 보여줄 때는, model - 필드가 String이기 때문에 String으로 보여진다. <br>
+
+ 
+
+* 정리 * 
+
+String(view) -> date(DB) -> date (select) // DB에서는 date이지만, 저장할때 String 타입으로 하면, DB에서 date객체로 저장됨. <br>
+
+ <br><br>
+<전> <br>
+![스크린샷 2023-04-01 오전 10 31 35](https://user-images.githubusercontent.com/116433637/229264373-69f5bee8-e89d-4cc3-b7b6-27d514067d21.png)<br>
+![스크린샷 2023-04-01 오전 10 06 30](https://user-images.githubusercontent.com/116433637/229264376-58652f80-64a8-4f32-9dc1-018ef978f2ac.png)
+
+ <br><br>
+
+<후> <br>
+![스크린샷 2023-04-01 오후 12 48 01](https://user-images.githubusercontent.com/116433637/229264409-31ff5d9b-6105-46c5-96d1-74cbdd4a2145.png)
+
+ <br>
+
+
+
+<br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #  🌳 에러 코드
 Whitelabel Error Page
