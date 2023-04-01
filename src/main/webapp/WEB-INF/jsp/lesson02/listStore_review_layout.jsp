@@ -22,25 +22,15 @@
 <link rel="stylesheet" type="text/css" href="/CSS/lesson02/store.css">
 </head>
 <body>
-	<div id="wrap" class="container bg-dark">
+	<div id="wrap" class="container ">
 		<header class="bg-info text-center d-flex justify-content-center align-items-center">
-			<span class="headerText text-light ">배탈의 민족</span>
+			<jsp:include page="listStore_header.jsp"  />
 		</header>
-		<section class="bg-warning">
-			<span class="display-4">우리동네 가게</span>
-				<c:forEach items="${store}" var="stores">
-					<div class="sectionBox">
-					<div class="font-weight-bold">${stores.name}</div>
-					<div>전화번호 : ${stores.phoneNumber}</div>
-					<div>주소 : ${stores.address}</div>
-					</div>
-				</c:forEach>
+		<section>
+			<jsp:include page="listStore_review_content.jsp" />
 		</section>
-		<footer class="bg-danger">
-			<div class="pt-3">
-				<span class="font-weight-bold  d-flex ">(주)우와한형제</span>
-				<small class="text-secondary">고객센터 : 1500-1500</small>
-			</div>
+		<footer>
+			<jsp:include page="listStore_footer.jsp" />
 		</footer>
 	
 	</div>
