@@ -13,7 +13,7 @@ import com.quiz.lesson02.BO.StoreBO;
 import com.quiz.lesson02.model.Store;
 
 @RequestMapping("/lesson02")
-@Controller // **View 연결
+@Controller // **View  연결
 public class Lesson02Quiz01RestController {
 
 	@Autowired  // 해당하는 Spring Bean을 찾아 사용할 수 있도록 한다.
