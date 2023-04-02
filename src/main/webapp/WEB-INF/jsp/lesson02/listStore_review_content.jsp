@@ -15,7 +15,7 @@
 				  reviewLists.point eq 1.5}">
 					<img src="/img/star_half.png" alt="이미지" width="20" height="20"></c:if></div>
 				
-				<div><c:forEach items="${reviewList}" var="point" begin="1" end="${5 - reviewLists.point}" >	
+				<div><c:forEach items="${reviewList}" var="point" begin="${5 - reviewLists.point}" end="1">	
 				<img src="/img/star_empty.png" alt="이미지" width="20" height="20"></c:forEach></div> 
 	
 		</div>
