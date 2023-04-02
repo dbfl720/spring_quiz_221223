@@ -8,7 +8,7 @@
 		<div class="sectionBox mb-4">
 		<div class="d-flex">
 			<h3>${reviewLists.userName}</h3>
-				<div class="ml-2"><c:forEach items="${reviewList}" var="point" begin="1" end="${reviewLists.point}" step="1" >	
+				<div class="ml-2 "><c:forEach items="${reviewList}" var="point" begin="1" end="${reviewLists.point}"  >	
 				<img src="/img/star_fill.png" alt="이미지" width="20" height="20"></c:forEach></div>
 				
 				<div><c:if test="${reviewLists.point eq 4.5 || reviewLists.point eq 3.5 || reviewLists.point eq 2.5 ||
