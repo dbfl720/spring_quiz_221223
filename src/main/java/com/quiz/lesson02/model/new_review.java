@@ -2,6 +2,7 @@ package com.quiz.lesson02.model;
 
 import java.util.Date;
 
+
 public class new_review {
 	private int id;
 	private int storeId;
