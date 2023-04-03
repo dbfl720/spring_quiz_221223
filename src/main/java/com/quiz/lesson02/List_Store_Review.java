@@ -21,8 +21,7 @@ public class List_Store_Review {
 		@Autowired   //@Autowired 한 페이지에 두개 써서 작성 가능...!!!!!!!
 		private ReviewBO reviewBO;
 		
-		@Autowired
-		private StoreBO storeBO;
+	
 		
 		// localhost:8080/lesson02/store_review_view?storeId=2&storeName=BHC
 		@GetMapping("/store_review_view")
