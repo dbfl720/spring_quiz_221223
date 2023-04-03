@@ -6,10 +6,17 @@
 		
 
 <c:if test="${empty reviewList}">
-	<h1 class="mt-5 text-center">작성된 리뷰가 없습니다.</h1>
+	<c:forEach items="${storeName}" var="storeNames">
+		<div class="display-4">${storeNames} - 리뷰</div>
+	</c:forEach>
+		<h1 class="mt-5 text-center">작성된 리뷰가 없습니다.</h1>
 </c:if>
+
 <c:if test="${not empty reviewList}">
-	<c:forEach items="${reviewList}" var="reviewLists">
+	<c:forEach items="${storeName}" var="storeNames">
+		<div class="display-4">${storeNames} - 리뷰</div>
+	</c:forEach>
+		<c:forEach items="${reviewList}" var="reviewLists">
 				<div class="sectionBox mb-4">
 				<div class="d-flex">
 					<h3>${reviewLists.userName}</h3>
@@ -34,7 +41,5 @@
 					<div>${reviewLists.review}</div>
 					<span class="menuBox">${reviewLists.menu}</span>
 				</div>
-		
-			
 	</c:forEach>
 </c:if>
