@@ -15,12 +15,12 @@
 				  reviewLists.point eq 1.5}">
 					<img src="/img/star_half.png" alt="이미지" width="20" height="20"></c:if></div>
 				
-				
-				<div><c:forEach begin="${reviewLists.point + 1 }" end="5" var="point">	
+				<div><c:if test="${reviewLists.point ne 4.5 || reviewLists.point ne  3.5 || reviewLists.point ne  2.5 ||
+				  reviewLists.point ne  1.5}" >
+					<c:forEach begin="${reviewLists.point + 2 }" end="5" var="point">	
 						<img src="/img/star_empty.png" alt="이미지" width="20" height="20">
-				</c:forEach></div>
-	
-				
+					</c:forEach>
+				</c:if></div>						
 		</div>
 		
 			<fmt:formatDate value="${reviewLists.createdAt}" pattern="yyyy년 M월 d일" var="pattern1" />
@@ -31,11 +31,7 @@
 		
 		
 		
-		
-		
-		<div><c:forEach begin="${reviewLists.point + 1 }" end="5" var="point">	
-						<img src="/img/star_empty.png" alt="이미지" width="20" height="20">
-				</c:forEach></div>
+				
 		
 	</c:forEach>
 	<hr>
