@@ -23,7 +23,7 @@ public class List_Store_Review {
 		private StoreBO storeBO;
 		
 		
-		// localhost:8080/lesson02/store_review_view?storeId=2$name=BHC
+		// localhost:8080/lesson02/store_review_view?storeId=2&name=BHC
 		@GetMapping("/store_review_view")
 		public String store_review_view(
 				@RequestParam(value="storeId") int storeId,
