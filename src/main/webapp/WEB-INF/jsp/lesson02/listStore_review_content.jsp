@@ -4,9 +4,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 		
+	
 	<c:forEach items="${reviewList}" var="reviewLists">
+	<div>${reviewLists.storeId}</div>
 		<c:choose>
-			<c:when test="${reviewLists.userName != null}">
+			<c:when test="${reviewLists.storeId != null}">
 				<div class="sectionBox mb-4">
 				<div class="d-flex">
 					<h3>${reviewLists.userName}</h3>
@@ -29,12 +31,12 @@
 					<small class="text-secondary">${pattern1}</small>
 					
 					<div>${reviewLists.review}</div>
-					<div>${reviewLists.menu}</div>
+					<span class="menuBox">${reviewLists.menu}</span>
 				</div>
 		
 			</c:when>
 			<c:otherwise>
-				<div>머지..</div>
+				<div>머지..안됨..</div>
 			</c:otherwise>	
 		</c:choose>
 	</c:forEach>

@@ -27,11 +27,12 @@ public class List_Store_Review {
 		@GetMapping("/store_review_view")
 		public String store_review_view(
 				@RequestParam(value="storeId") int storeId,
+				@RequestParam(value="name") String name,
 				Model model) {
 			
 			// DB select
 			// list에 담기 - breakpoint 걸기 위해
-			List<new_review> reviewList = reviewBO.getReviewList(storeId);
+			List<new_review> reviewList = reviewBO.getReviewList(storeId,name);
 			model.addAttribute("reviewList", reviewList);
 	
 		
