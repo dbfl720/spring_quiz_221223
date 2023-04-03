@@ -34,12 +34,14 @@ public class Lesson06Controller {
 		
 		// insert
 		listsBO.addLists(name, url);
-		return "/result_view";
+		return "성공";
 	}
 	
 	
 	@GetMapping("/result_view")
-	public String resultView() {
+	public String resultView(
+			@RequestParam("name") String name,
+			@RequestParam("url") String url)) {
 		return "lesson06/result";
 	}
 }

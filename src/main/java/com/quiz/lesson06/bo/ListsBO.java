@@ -19,4 +19,6 @@ public class ListsBO {
 		
 		listsMapper.insertLists(name, url);
 	}
+	
+	public 
 }
