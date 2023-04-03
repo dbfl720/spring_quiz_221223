@@ -18,8 +18,8 @@ public class ReviewBO {
 	
 	
 	// ouput: List<new_review>     //   input:  int storeId
-	public List<new_review> getReviewList(int storeId, String name) {
-		return reviewMapper.selectReviewList(storeId, name);
+	public List<new_review> getReviewList(int storeId) {
+		return reviewMapper.selectReviewList(storeId);
 	}
 	
 	

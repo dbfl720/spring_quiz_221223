@@ -6,13 +6,19 @@
 	
 
 	<select id="selectReviewList" parameterType="int"  resultType="com.quiz.lesson02.model.new_review">
-		select A.*, B.*
-		from `new_review` AS A
-		inner join `store` AS B
-		on A.storeId = B.id
+		SELECT
+			`id`
+			,`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`new_review`
 		WHERE
-			A.storeId = #{storeId}
-		ORDER BY A.`id` DESC
+			`storeId` = #{storeId}
 	
 	
 	</select>

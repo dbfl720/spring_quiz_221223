@@ -13,8 +13,7 @@ import com.quiz.lesson02.model.new_review;
 public interface ReviewMapper {
 
 	public List<new_review> selectReviewList(
-			@Param("storeId") int storeId,
-			@Param("name") String name);
+			@Param("storeId") int storeId);
 	
 
 }

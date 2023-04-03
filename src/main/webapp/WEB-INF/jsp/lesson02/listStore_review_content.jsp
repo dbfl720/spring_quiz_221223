@@ -4,11 +4,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 		
-	
+
+<c:if test="${empty reviewList}">
+	<h1 class="mt-5 text-center">작성된 리뷰가 없습니다.</h1>
+</c:if>
+<c:if test="${not empty reviewList}">
 	<c:forEach items="${reviewList}" var="reviewLists">
-	<div>${reviewLists.storeId}</div>
-		<c:choose>
-			<c:when test="${reviewLists.storeId != null}">
 				<div class="sectionBox mb-4">
 				<div class="d-flex">
 					<h3>${reviewLists.userName}</h3>
@@ -34,10 +35,6 @@
 					<span class="menuBox">${reviewLists.menu}</span>
 				</div>
 		
-			</c:when>
-			<c:otherwise>
-				<div>머지..안됨..</div>
-			</c:otherwise>	
-		</c:choose>
+			
 	</c:forEach>
-	<hr>
+</c:if>

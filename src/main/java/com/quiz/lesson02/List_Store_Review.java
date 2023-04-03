@@ -18,22 +18,24 @@ import com.quiz.lesson02.model.new_review;
 @Controller  // view 연결  //요청이 들어오는 스프링 빈
 public class List_Store_Review {
 
-		@Autowired
+		@Autowired   //@Autowired 한 페이지에 두개 써서 작성 가능...!!!!!!!
 		private ReviewBO reviewBO;
+		
+		@Autowired
 		private StoreBO storeBO;
 		
-		
-		// localhost:8080/lesson02/store_review_view?storeId=2&name=BHC
+		// localhost:8080/lesson02/store_review_view?storeId=2&storeName=BHC
 		@GetMapping("/store_review_view")
 		public String store_review_view(
 				@RequestParam(value="storeId") int storeId,
-				@RequestParam(value="name") String name,
+				@RequestParam(value="storeName") String storeName,
 				Model model) {
 			
 			// DB select
 			// list에 담기 - breakpoint 걸기 위해
-			List<new_review> reviewList = reviewBO.getReviewList(storeId,name);
+			List<new_review> reviewList = reviewBO.getReviewList(storeId);
 			model.addAttribute("reviewList", reviewList);
+			model.addAttribute("storeName", storeName);  // model 이런식으로 두개 담을 수 있음!!!!!!!!!!!!!
 	
 		
 			return "/lesson02/listStore_review_layout";

@@ -25,23 +25,23 @@ public class Lesson06Controller {
 		return "lesson06/lists";
 	}
 	
-	
-	@PostMapping("/add_lists")
-	@ResponseBody
-	public String addLists(
-			@RequestParam("name") String name,
-			@RequestParam("url") String url) {
-		
-		// insert
-		listsBO.addLists(name, url);
-		return "성공";
-	}
-	
-	
-	@GetMapping("/result_view")
-	public String resultView(
-			@RequestParam("name") String name,
-			@RequestParam("url") String url)) {
-		return "lesson06/result";
-	}
+//	
+//	@PostMapping("/add_lists")
+//	@ResponseBody
+//	public String addLists(
+//			@RequestParam("name") String name,
+//			@RequestParam("url") String url) {
+//		
+//		// insert
+//		listsBO.addLists(name, url);
+//		return "성공";
+//	}
+//	
+//	
+//	@GetMapping("/result_view")
+//	public String resultView(
+//			@RequestParam("name") String name,
+//			@RequestParam("url") String url)) {
+//		return "lesson06/result";
+//	}
 }
