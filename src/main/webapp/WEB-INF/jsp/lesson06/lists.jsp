@@ -71,6 +71,13 @@
 						
 						 alert(data);
 					}
+					, error:function(request, status, error) {
+						alert(request);
+						alert(status);
+						alert(error);
+					}
+					
+					
 				}); 
 				
 			});
