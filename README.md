@@ -24,6 +24,52 @@
 <br><br><br><br><br><br><br><br><br>
 
 
+
+
+
+
+
+# 🌿 JSTL를 이용한 배탈의 민족 사이트 만들기<br><br>
+
+
+https://user-images.githubusercontent.com/116433637/229697944-b207c715-e58f-4354-8ced-a0dbcfcb076e.mp4
+
+
+<br><br><br>
+
+![스크린샷 2023-04-04 오후 2 38 19](https://user-images.githubusercontent.com/116433637/229698003-667d9d85-b5e2-4108-b739-178e894108f4.png)
+
+
+<br><br><br>
+
+![스크린샷 2023-04-04 오후 2 38 37](https://user-images.githubusercontent.com/116433637/229698050-00e262f2-a9bf-4044-93bf-0ccf0427a52f.png)
+
+
+<br><br><br>
+
+
+
+### 🌿<b>JSTL를 이용해 사용한 기능</b>
+
+> 1. 우리동네 가게 리스트 페이지 <br>
+> store table 을 활용해서 아래와 같은 페이지를 만드세요. <br>
+> 2강 DB 연동(MyBatis) 에서 사용한 StoreBO 를 활용하세요. <br>
+> 2. 리뷰 페이지 <br>
+> 1번 문제에서 만든 리스트에서 가게를 선택 했을때, 해당 가게의 리뷰를 보여주는 페이지를 만드세요. <br>
+> new_review table을 활용하세요. <br>
+> get method의 parameter를 활용해서 링크로 store 정보를 전달하세요. <br>
+> hint ) /test06/reviews?storeId=3&storeName=BHC <br>
+> 최근 날짜 순서로 출력하세요 <br>
+> 별 이미지를 활용해서 point 에 따른 별점을 표시하세요. <br>
+> 리뷰 내용이 없는 경우 아래와 같이 안내하도록 하세요. <br>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
 # 🌿 JSTL를 이용한 기상청 사이트 만들기<br><br>
 
 https://user-images.githubusercontent.com/116433637/229274546-4e3c00b2-9895-4117-a7a3-493903d98424.mp4
@@ -38,7 +84,7 @@ https://user-images.githubusercontent.com/116433637/229274546-4e3c00b2-9895-4117
 
 
 
-### 🌿<b>JSTL를 이용해 사용한 기술들</b>
+### 🌿<b>JSTL를 이용해 사용한 기능</b>
 
 > 1. 날씨 정보 페이지
 > weather_history table 을 활용해서 아래와 같은 페이지를 만드세요. <br>
