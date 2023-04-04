@@ -11,8 +11,8 @@ import com.quiz.lesson06.model.Lists;
 public interface ListsMapper {
 
 	
-	// output: void        input : title, url
-	public void insertLists (
+	// output: int        input : title, url
+	public int insertLists (
 			@Param("name") String name,
 			@Param("url") String url);
 	
@@ -20,5 +20,9 @@ public interface ListsMapper {
 	
 	// ouput: List<lists>    input: x
 	public List<Lists> selectLists();
+	
+	
+	// 0 
+	public boolean existUrl(String url);
 	
 }

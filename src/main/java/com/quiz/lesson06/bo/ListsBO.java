@@ -17,11 +17,11 @@ public class ListsBO {
 	
 	
 	// insert
-	// output: void        input : title, url
-	public void addLists(
+	// output: 성공된 행의 개수       input : name, url
+	public int addLists(
 			String name, String url) {
 		
-		listsMapper.insertLists(name, url);
+		return listsMapper.insertLists(name, url);   // mybatis가 성공된 행의 개수 돌려주는 거임.
 	}
 	
 	
@@ -30,6 +30,13 @@ public class ListsBO {
 	// ouput: List<lists>    input: x
 	public List<Lists> getLists() {
 		return listsMapper.selectLists();
+	}
+	
+	
+	
+	// output: boolean  input:name
+	public boolean existUrl(String url) {
+		return listsMapper.existUrl(url);
 	}
 	
 }

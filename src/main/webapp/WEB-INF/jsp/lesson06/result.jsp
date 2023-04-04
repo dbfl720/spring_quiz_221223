@@ -26,9 +26,9 @@
 
 		</thead>
 		<tbody>
-			<c:forEach items="${list}" var="lists" varStatus="status">
+			<c:forEach items="${list}" var="lists">
 				<tr>
-					<td>${status.count}</td>
+					<td>${lists.id}</td>
 					<td>${lists.name}</td>
 					<td>${lists.url}</td>
 				</tr>
