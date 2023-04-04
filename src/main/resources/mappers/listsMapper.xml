@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!-- dtd문법 -->
  
+ 
  <mapper namespace="com.quiz.lesson06.dao.ListsMapper">
- 	<insert id="insertLists" parameterType="map">
+ 	<insert id="insertLists" parameterType="map">          <!-- xml에서는 파라미터들을 map으로 받으면 된다. --><!-- @Param 어노테이션 썼기 때문에 parameterType="map"으로 해야함. -->
  		INSERT INTO `lists`
  		(
  			`name`
@@ -22,5 +23,19 @@
  		)
  		
  	</insert>
+ 	
+ 	
+ 	
+ 	<select id="selectLists"  resultType="com.quiz.lesson06.model.Lists">
+ 		SELECT
+ 			`id`
+ 			,`name`
+ 			,`url`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`lists`
+ 	
+ 	</select>
  
  </mapper>

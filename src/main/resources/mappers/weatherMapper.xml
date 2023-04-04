@@ -5,7 +5,7 @@
  
 
  <mapper namespace="com.quiz.lesson05.dao.WeatherMapper">
- 		<select id="selectWeather" resultType="com.quiz.lesson05.model.WeatherHistory"> 
+ 		<select id="selectWeather" resultType="com.quiz.lesson05.model.WeatherHistory">   
  		SELECT
  			`id`
  			,`date`
@@ -22,7 +22,7 @@
  		
  		
  		
- 		<insert id="insertWeather" parameterType="com.quiz.lesson05.model.WeatherHistory">
+ 		<insert id="insertWeather" parameterType="com.quiz.lesson05.model.WeatherHistory">  <!-- model에 담으면  parameterType="com.quiz.lesson05.model.WeatherHistory"  -->
  												
  			INSERT INTO `weather_history`       <!-- insert는 insert할 부분만 쓰기.  --> 
  			(

@@ -17,7 +17,7 @@ public class ReviewBO {
 	private ReviewMapper reviewMapper;   
 	
 	
-	// ouput: List<new_review>     //   input:  int storeId
+	// ouput: List<new_review>     //   input:  storeId
 	public List<new_review> getReviewList(int storeId) {
 		return reviewMapper.selectReviewList(storeId);
 	}
