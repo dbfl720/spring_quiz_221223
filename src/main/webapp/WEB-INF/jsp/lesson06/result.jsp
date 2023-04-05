@@ -22,7 +22,7 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
-					
+					<th></th>
 				</tr>
 
 		</thead>
@@ -32,6 +32,9 @@
 					<td>${lists.id}</td>
 					<td>${lists.name}</td>
 					<td>${lists.url}</td>
+					<td>
+					<button type="button" class="delBtn btn btn-danger">삭제</button>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

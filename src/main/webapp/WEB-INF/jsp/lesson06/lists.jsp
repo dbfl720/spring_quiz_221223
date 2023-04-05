@@ -57,21 +57,19 @@
 				
 				
 				
+				 console.log($("#urlStatusArea").children().length);
+					// 0: 거짓(중복x)   그 외 : 참 (중복)
+					if ($("#urlStatusArea").children().length == 0) {// ???????? 중복이 아닌데도 서버호출 불가가 됨. colse도 1이 나옴... ?
+						alert("서버호출 가능");  
+						 
+					
+					}  else {  
+						alert("서버호출 불가"); 
+							return;
+					}
 				
 				
-				console.log($("#urlStatusArea").children().length);
-				// 0: 거짓(중복x)   그 외 : 참 (중복)
-				if ($("#urlStatusArea").children().length == 0) {
-					alert("서버호출 가능");  
-				
-				} 
-				
-				
-				if ($("#urlStatusArea").children().length != 0) {  // ???????? 중복이 아닌데도 서버호출 불가가 됨.
-					alert("서버호출 불가");  
-						return;
-				}
-
+			
 				console.log(name);
 				console.log(url); 
 				
@@ -150,9 +148,7 @@
 							if (data.isDuplication) {
 								$("#urlStatusArea").append('<span class="text-danger">중복된 url 입니다.</span>');
 							}
-							else {
-								$("#urlStatusArea").append('<span class="text-danger">저장 가능한 url 입니다.</span>');
-							}
+							
 						}
 						
 						, error:function(request, status, error) {
@@ -164,6 +160,10 @@
 				}); // 중복 확인
 			
 			
+				
+				
+				
+				
 		});
 	</script>
 
