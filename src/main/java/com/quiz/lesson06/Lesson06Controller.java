@@ -52,7 +52,7 @@ public class Lesson06Controller {
 			 result.put("code", 1);
 			 result.put("result", "성공");
 		 } else {
-			 result.put("code", 1);
+			 result.put("code", 500);
 			 result.put("errorMessage", "데이터를 추가하는데 실패했습니다.");
 		 }
 		 
@@ -83,7 +83,10 @@ public class Lesson06Controller {
 			@RequestParam("url") String url) {
 		
 		Map<String, Boolean> result = new HashMap<>();
-		result.put("", null);
+		result.put("isDuplication", listsBO.existUrl(url));
 		return result;
 	}
+	
+	
+	
 }

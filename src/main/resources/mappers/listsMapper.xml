@@ -37,5 +37,19 @@
  			`lists`
  	
  	</select>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<select id="existUrl" parameterType="string" resultType="boolean">
+	 		SELECT
+	 			COUNT(*)
+ 			FROM
+ 				`lists`
+			WHERE
+				`url` = #{url}
+	 	
+ 	</select>
  
  </mapper>

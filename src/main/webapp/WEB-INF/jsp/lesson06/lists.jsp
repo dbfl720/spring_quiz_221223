@@ -29,14 +29,16 @@
 	<script>
 	// 항상 jsp 콘솔 창 켜서 확인! 
 		$(document).ready(function() {
-			$("#addBtn").on("click", function() {   // click - 이벤트 이름 
+			
+			// 추가버튼
+			 $("#addBtn").on("click", function() {   // click - 이벤트 이름 
 				//alert("??");
 				
 				// validation
 				let name = $("#name").val().trim();    // val() - value
 				let url = $("#url").val().trim();
 				
-				if (!name) {       // (name == "") - 비추. null인지 undifned인지 헷갈림.
+				if (!name) {       // (name == "") 
 					alert("제목을 입력하세요.");
 					return;
 				}
@@ -49,69 +51,38 @@
 				
 				// http도 아니고 https도 아닐 때 잘못된 주소 
 				 if (url.startsWith("http://") == false && url.startsWith("https://") == false) {
-					alert("http 또는 https 프로토콜을 입력하세요.");
+					alert("http:// 또는 https:// 입력해주세요.");
 					return;
 				} 
 				
+				
+				
+				
+				
+				console.log($("#urlStatusArea").children().length);
+				// 0: 거짓(중복x)   그 외 : 참 (중복)
+				if ($("#urlStatusArea").children().length == 0) {
+					alert("서버호출 가능");  
+				
+				} 
+				
+				
+				if ($("#urlStatusArea").children().length != 0) {  // ???????? 중복이 아닌데도 서버호출 불가가 됨.
+					alert("서버호출 불가");  
+						return;
+				}
 
 				console.log(name);
-				console.log(url);
+				console.log(url); 
 				
 				
-
+		
 				
 				
-				
-				
-				// 중복확인 버튼 클릭
-				$("#urlCheckBtn").on('click', function() {
-					// #addressStatusArea 하위 태그들을 초기화
-					$('#urlStatusArea').empty();
-					
-					let url = $("#url").val().trim();
-					
-					// validation
-					if (url == "") {
-						$("#urlStatusArea").append('<span class="text-danger">주소가 비어있습니다.</span>');
-						return;
-					}
-					
-					
-					
-					// 주소 중복됐는지 체크 -> AjAX 통신
-					$.ajax({
-						// request
-						type:"GET"
-						, url:""
-						
-						
-						
-					});
-					
-				});
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+			
 				
 				// AJAX: 폼태그와 상관없이 비동기로 별도 요청 (Request)
-				 $.ajax({
+				  $.ajax({
 				// request
 					type:"POST"
 					, url:"/lesson06/quiz01/add_lists"       // postMapping  주소 쓰기. 
@@ -139,7 +110,58 @@
 					
 				}); 
 				
-			});
+			});  // 추가
+			 
+			 
+			
+			
+			
+			
+			
+			
+			
+			 
+			// 중복확인 버튼 클릭
+				$("#urlCheckBtn").on('click', function() {
+					// #addressStatusArea 하위 태그들을 초기화
+					$("#urlStatusArea").empty();
+					
+					let url = $("#url").val().trim();
+					
+					// validation
+					if (url == "") {
+						$("#urlStatusArea").append('<span class="text-danger">url를 입력해주세요.</span>');
+						return;
+					}
+					
+					
+					
+					// 주소 중복됐는지 체크 -> AjAX 통신   // 기본으로 -get
+					$.ajax({
+						// request
+						type:"GET"
+						, url:"/lesson06/quiz01/is_duplication"
+						, data:{"url":url}
+						
+					
+					
+						// response
+						, success:function(data) {
+							if (data.isDuplication) {
+								$("#urlStatusArea").append('<span class="text-danger">중복된 url 입니다.</span>');
+							}
+							else {
+								$("#urlStatusArea").append('<span class="text-danger">저장 가능한 url 입니다.</span>');
+							}
+						}
+						
+						, error:function(request, status, error) {
+							alert("중복확인에 실패했습니다. 관리자에게 문의해주세요.");
+						}
+						
+					});
+					
+				}); // 중복 확인
 			
 			
 		});

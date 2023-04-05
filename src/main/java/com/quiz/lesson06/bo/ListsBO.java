@@ -34,7 +34,8 @@ public class ListsBO {
 	
 	
 	
-	// output: boolean  input:name
+	// select
+	// output: boolean  input:url
 	public boolean existUrl(String url) {
 		return listsMapper.existUrl(url);
 	}

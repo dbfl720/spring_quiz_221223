@@ -22,7 +22,9 @@ public interface ListsMapper {
 	public List<Lists> selectLists();
 	
 	
-	// 0 
+	
+	// output: boolean       input: url
+	// 0: 거짓(중복x)   그 외 : 참 (중복)
 	public boolean existUrl(String url);
 	
 }

@@ -22,6 +22,7 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
+					
 				</tr>
 
 		</thead>
