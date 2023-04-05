@@ -33,7 +33,7 @@
 					<td>${lists.name}</td>
 					<td>${lists.url}</td>
 					<td>
-					<button type="button" class="delBtn btn btn-danger" id="${lists.id}" data-seq="${lists.id}" onclick="remove(this)">삭제</button>
+					<button type="button" class="delBtn btn btn-danger" value="${lists.id}">삭제</button>
 					</td>
 				</tr>
 			</c:forEach>
@@ -47,14 +47,14 @@
 <script>
 $(document).ready(function() {
 	
-	/* // 삭제 버튼
+	// 삭제 버튼
 	$(".delBtn").on("click", function(e) {
 		let id = $(".delBtn").val()
 		//let id = e.target.dataset.id;
 		
 		
 		// AJAX
-		$.ajax({
+		$. ajax({
 			// request
 			type:"POST"
 			, url:"/lesson06/quiz01/delete_lists"
@@ -78,25 +78,11 @@ $(document).ready(function() {
 			
 			
 		}); // ajax
-	}); // 삭제 버튼 */
+	}); // 삭제버튼 
 	
 	
 	
-	function remove(component) {
-		$.ajax({
-			url:"/lesson06/quiz01/delete_lists"
-		   ,type: "DELETE"
-		   ,processDate: false
-		   ,contentType: false
-		   ,data: formDate
-		   ,success: function(data) {
-			   // 삭제 : 1  else : 0
-			   if (data == 1){
-				   $(component).remove();
-			   }
-		   }
-		});
-	}
+
 	
 });  // ready
 
