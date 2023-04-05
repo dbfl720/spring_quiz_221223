@@ -40,4 +40,12 @@ public class ListsBO {
 		return listsMapper.existUrl(url);
 	}
 	
+	
+	
+	// delete
+	// output: x     input: id
+	public void deleteListsById (int id) {
+		listsMapper.deleteListsById(id);
+	}
+	
 }

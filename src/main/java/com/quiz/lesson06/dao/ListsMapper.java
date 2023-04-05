@@ -27,4 +27,10 @@ public interface ListsMapper {
 	// 0: 거짓(중복x)   그 외 : 참 (중복)
 	public boolean existUrl(String url);
 	
+	
+	
+	
+	// output: x       input: id
+	public void deleteListsById(int id);
+	
 }

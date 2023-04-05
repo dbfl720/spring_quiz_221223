@@ -33,7 +33,7 @@
 					<td>${lists.name}</td>
 					<td>${lists.url}</td>
 					<td>
-					<button type="button" class="delBtn btn btn-danger">삭제</button>
+					<button type="button" class="delBtn btn btn-danger" value="${lists.id}">삭제</button>
 					</td>
 				</tr>
 			</c:forEach>
@@ -41,5 +41,49 @@
 	
 	</table>
 	</div>
+	
+	
+
+<script>
+$(document).ready(function() {
+	
+	// 삭제 버튼
+	$(".delBtn").on("click", function() {
+		let id = $(".delBtn").val()
+		
+		
+		
+		// AJAX
+		$.ajax({
+			// request
+			type:"POST"
+			, url:"/lesson06/quiz01/delete_lists"
+			, data:{"id" : id}
+		
+		
+			// response
+			, success:function(data) {
+				
+				if(data == "성공") {
+					document.location.reload("/lesson06/quiz01/result_view");
+				}
+				
+				alert(data);
+			}
+			
+			, error:function(request, status, error) {
+				alert("요청에 실패했습니다. 관리자에게 문의해주세요.");  // ajax 요청도 안되는 경우. 
+				
+			}
+			
+			
+		}); // ajax
+	}); // 삭제 버튼
+	
+});  // ready
+
+
+</script>	
+
 </body>
 </html>

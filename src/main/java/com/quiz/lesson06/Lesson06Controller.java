@@ -62,6 +62,29 @@ public class Lesson06Controller {
 	
 	
 	
+	
+	
+	
+	// localhost:8080/lesson06/quiz01/delete_lists
+	@PostMapping("/delete_lists")
+	@ResponseBody
+	public String delectLists (@RequestParam("id") int id) {
+		
+		// delect DB
+		listsBO.deleteListsById(id);
+		
+		return "삭제 완료";
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	// localhost:8080/lesson06/quiz01/result_view
 	@GetMapping("/result_view")
 	public String resultView(Model model) {
@@ -86,6 +109,9 @@ public class Lesson06Controller {
 		result.put("isDuplication", listsBO.existUrl(url));
 		return result;
 	}
+	
+	
+	
 	
 	
 	
