@@ -33,7 +33,7 @@
 					<td>${lists.name}</td>
 					<td>${lists.url}</td>
 					<td>
-					<button type="button" class="delBtn btn btn-danger" value="${lists.id}">삭제</button>
+					<button name="delBtn" type="button" class="delBtn btn btn-danger" value="${lists.id}">삭제</button>
 					</td>
 				</tr>
 			</c:forEach>
@@ -48,10 +48,9 @@
 $(document).ready(function() {
 	
 	// 삭제 버튼
-	$(".delBtn").on("click", function(e) {
-		let id = $(".delBtn").val()
-		//let id = e.target.dataset.id;
-		
+	$(.delBtn).on("click", function() {
+		 let id = $(".delBtn").val()
+		 // let id = document.getElementsByName("delBtn");
 		
 		// AJAX
 		$. ajax({
@@ -65,7 +64,7 @@ $(document).ready(function() {
 			, success:function(data) {
 				
 				if(data == "성공") {
-					document.location.reload();
+					document.location.href=document.location.href;
 				}
 				
 				alert(data);
@@ -77,13 +76,9 @@ $(document).ready(function() {
 			}
 			
 			
-		}); // ajax
+		}); 
 	}); // 삭제버튼 
-	
-	
-	
 
-	
 });  // ready
 
 
