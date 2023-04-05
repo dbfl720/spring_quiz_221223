@@ -22,7 +22,7 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
-					<th></th>
+					<th>삭제</th>
 				</tr>
 
 		</thead>
@@ -33,7 +33,8 @@
 					<td>${lists.name}</td>
 					<td>${lists.url}</td>
 					<td>
-					<button name="delBtn" type="button" class="delBtn btn btn-danger" value="${lists.id}">삭제</button>
+					<%-- <button type="button" class="del-btn btn btn-danger" value="${lists.id}">삭제</button> --%>
+					<button type="button" class="del-btn btn btn-danger" data-lists-id="${lists.id}">삭제</button> 
 					</td>
 				</tr>
 			</c:forEach>
@@ -46,39 +47,56 @@
 
 <script>
 $(document).ready(function() {
-	
-	// 삭제 버튼
-	$(.delBtn).on("click", function() {
-		 let id = $(".delBtn").val()
-		 // let id = document.getElementsByName("delBtn");
 		
-		// AJAX
-		$. ajax({
-			// request
-			type:"POST"
-			, url:"/lesson06/quiz01/delete_lists"
-			, data:{"id" : id}
+		// (1)
+		/*
+		$('.del-btn').on('click', function(e) {   // e- 객체.
+			let id = e.target.value;         // javascript 문법
+		 	//let id = $(this).val();         // *** this - 지금 클릭 된 것 하나! - jquery 문법 
+			alert(id);
+			
+		}); // (1) 
+		*/
 		
 		
-			// response
-			, success:function(data) {
+		
+		
+		//(2) data 활용
+		// data-lists-id 태그에 값을 심어 놓는다.       data- 그 뒤 부터는 이름을 직접 짓는다. (!!!!!! 대문자 들어가면 안됨 camel X)
+		// 스크립트: $(this).data('lists-id');  
+		$('.del-btn').on('click', function() {
+			let id = $(this).data('lists-id');
+			
+			
+			
+			$.ajax({
+				// request
+				type:"POST"
+				, url:"/lesson06/quiz01/delete_lists"
+				, data : {"id:id"}
 				
-				if(data == "성공") {
-					document.location.href=document.location.href;
+			
+			
+			
+				// response
+				, success:function(data) {
+					if (data.code == 1) {
+						location.reload(true);  // 새로고침 - 작동 안되면 ture쓰면 됨
+					} else {
+						alert(data.errorMessage);
+					}
 				}
 				
-				alert(data);
-			}
-			
-			, error:function(request, status, error) {
-				alert("요청에 실패했습니다. 관리자에게 문의해주세요.");  // ajax 요청도 안되는 경우. 
 				
-			}
-			
-			
-		}); 
-	}); // 삭제버튼 
-
+				,error:function(request, status, error) {
+					alert("삭제하는데 실패했습니다. 관리자에게 문의해주세요.");
+				}
+				
+			}); // ajax
+		});
+		
+		
+		
 });  // ready
 
 

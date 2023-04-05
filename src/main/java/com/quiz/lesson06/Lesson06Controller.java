@@ -65,23 +65,6 @@ public class Lesson06Controller {
 	
 	
 	
-	// localhost:8080/lesson06/quiz01/delete_lists
-	@PostMapping("/delete_lists")
-	@ResponseBody
-	public String delectLists (@RequestParam("id") int id) {
-		
-		// delect DB
-		listsBO.deleteListsById(id);
-		
-		return "삭제 완료";
-		
-		
-	}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -99,18 +82,57 @@ public class Lesson06Controller {
 	
 	
 	
-	// AJAX 요청
+	// 중복 URL 체크 - AJAX 요청
 	@ResponseBody
-	@GetMapping("/is_duplication")
-	public Map<String, Boolean> isDuplication(
-			@RequestParam("url") String url) {
+	@PostMapping("/is_duplication")
+	public Map<String, Boolean> isDuplication(     // 보통은 json - map 형식으로 보냄. 
+			@RequestParam("url") String url) {  // 필수 파라미터
 		
 		Map<String, Boolean> result = new HashMap<>();
-		result.put("isDuplication", listsBO.existUrl(url));
+		
+		// select - 마지막에 해랏.   // 이렇게 하는 로직이 더 좋음. 중복확인 로직! - 한 
+		Lists lists = listsBO.getListsByUrl(url);
+		if (lists != null) {
+			result.put("isDuplication", true);
+			
+		} else {
+			result.put("isDuplication", false);
+
+		}
+		
 		return result;
 	}
 	
 	
+	
+	
+	
+	// id로 삭제 API - 중간의 매개체임. (종업원처럼..)
+	// AJAX 요청
+	// localhost:8080/lesson06/quiz01/delete_lists?id=40
+	// localhost:8080/lesson06/quiz01/delete_lists
+	@PostMapping("/delete_lists")  // 주소로 삭제 불가능 - ajax로 통해서 삭제 가능. GetMapping 하면 안됨 (주소로 삭제 가능해서..)
+	@ResponseBody
+	public Map<String, Object> delectLists (
+			@RequestParam("id") int id) {
+		
+		// delect DB
+		int rowCount = listsBO.deleteListsById(id);
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		if(rowCount > 0) {
+			result.put("code", 1);   // 1: 성공       - api설계하는 사람마음대로 작성
+			result.put("result", "성공"); 			
+		} else {
+			result.put("code", 500);     // 500: 에러
+			result.put("errorMessage", "삭제 하는데 실패했습니다.");
+		}
+		
+		return result;
+		
+		
+	}
 	
 	
 	

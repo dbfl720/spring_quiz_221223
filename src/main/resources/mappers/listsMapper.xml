@@ -42,13 +42,17 @@
  	
  	
  	
- 	<select id="existUrl" parameterType="string" resultType="boolean">
-	 		SELECT
-	 			COUNT(*)
- 			FROM
- 				`lists`
-			WHERE
-				`url` = #{url}
+ 	<select id="selectListsByUrl" parameterType="string" resultType="com.quiz.lesson06.model.Lists">
+ 		SELECT
+ 			`id`
+ 			,`name`
+ 			,`url`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`lists`			
+ 		WHERE
+ 			`url` = #{url}
 	 	
  	</select>
  	
@@ -56,7 +60,7 @@
  	
  	
  	
- 	<delete id="deleteListsById" parameterType="int">
+ 	<delete id="deleteListsById"  parameterType="int">
  		DELETE
  		FROM
  			`lists`

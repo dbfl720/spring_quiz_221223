@@ -35,17 +35,17 @@ public class ListsBO {
 	
 	
 	// select
-	// output: boolean  input:url
-	public boolean existUrl(String url) {
-		return listsMapper.existUrl(url);
+	// output: Lists - 1개행 또는 0개행     input:url
+	public  Lists getListsByUrl(String url) {   // 하나의 행을 가져오는 거는 Lists로 ouput 쓴다. 
+		return listsMapper.selectListsByUrl(url);
 	}
 	
 	
 	
 	// delete
-	// output: x     input: id
-	public void deleteListsById (int id) {
-		listsMapper.deleteListsById(id);
+	// output: int     input: id
+	public int deleteListsById (int id) {
+		return listsMapper.deleteListsById(id);
 	}
 	
 }

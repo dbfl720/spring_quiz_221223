@@ -16,11 +16,12 @@
 	<div>제목</div>
 	<input id="name"  type="text" class="form-control col-12 mb-3">
 	<div>주소</div>
-	<div class="d-flex">
+	<div class="d-flex form-inline">
 		<input id="url"  type="text" class="form-control col-10 mb-3">
 		<button id="urlCheckBtn" type="button" class="btn btn-info form-control col-1 ml-2">중복확인</button>
 	</div>
-	<small id="urlStatusArea"></small>
+	<small id="isDuplicationText" class="text-danger d-none">중복된 URL 입니다.</small>
+	<small id="availableUrlText" class="text-success d-none">저장 가능한 URL 입니다.</small>
 	<div><input type="button" id="addBtn" class="btn btn-success form-control col-12 mb-3" value="추가"></div>
 </div>
 
@@ -128,30 +129,37 @@
 					
 					// validation
 					if (url == "") {
-						$("#urlStatusArea").append('<span class="text-danger">url를 입력해주세요.</span>');
+						alert("검사할 url을 입력하세요.");
 						return;
 					}
 					
 					
 					
-					// 주소 중복됐는지 체크 -> AjAX 통신   // 기본으로 -get
+					// 주소 중복됐는지 체크 -> AjAX 통신   
 					$.ajax({
 						// request
-						type:"GET"
+						type:"POST"  // post로 하는게 좋음 - 주소길이 제한이 있기 때문에... 
 						, url:"/lesson06/quiz01/is_duplication"
-						, data:{"url":url}
+						, data:{"url":url}  // "" - db 컬럼명과 일치하는게 좋음. 
 						
 					
 					
 						// response
-						, success:function(data) {
+						, success:function(data) {  // key, value 형태로 옴. String.  // 위에 data와 달름.
+							// {"isDuplication":true}
 							if (data.isDuplication) {
-								$("#urlStatusArea").append('<span class="text-danger">중복된 url 입니다.</span>');
+								// 중복
+								$("#isDuplicationText").removeClass("d-none");
+								$("#availableUrlText").addClass("d-none");
+							} else {
+								// 중복 아님 => 사용 가능.
+								$("#isDuplicationText").addClass("d-none");
+								$("#availableUrlText").removeClass("d-none");
 							}
 							
 						}
 						
-						, error:function(request, status, error) {
+						, error:function(request, status, error) {   // 서버에서 에러가 발생했을 때 . 
 							alert("중복확인에 실패했습니다. 관리자에게 문의해주세요.");
 						}
 						
