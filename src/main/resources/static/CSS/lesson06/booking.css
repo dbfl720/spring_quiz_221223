@@ -9,4 +9,7 @@ nav{height: 45px; background-color: rgb(209, 144, 58); text-decoration: none;}
 nav > ul > li{list-style: none;}
 .nav-a:hover{text-decoration: none;}
 section{height: 1000px;}
+.content1{ width:400px; display: flex; justify-content: center; align-items: center; font-size: 40px; background-color:sienna;}
+.contetn2{  color:white; background-color:rgb(209, 144, 58);}
+.content3{ width:400px;  display: flex; justify-content: center; align-items: center; font-size: 40px; background-color:sienna;}
 footer{height:100px;}

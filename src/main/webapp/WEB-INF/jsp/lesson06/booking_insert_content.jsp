@@ -26,15 +26,12 @@
 $(document).ready(function() {
 			
 	// datepicker
-	 $(function() {
 		$('#date').datepicker({
 			dateFormat: 'yy-mm-dd'
+			, minDate:0  // 오늘부터 그 뒤 선택
 		});
-	});
-		 
-			
-			
-			
+
+	
 			
 	// 추가
 	$("#addBookingBtn").on("click", function(){
@@ -59,16 +56,27 @@ $(document).ready(function() {
 		}
 		
 		
-		if (day == "") {
+		if (day == "") { 
 			alert("숙박일수를 입력하세요.");
 			return;
 		}
+		
+		if (isNaN(day)) { // ** 숫자가 아닌 값 들어오면 true
+			alert("숙박일수는 숫자만 입력 가능합니다.");
+			return;
+		}
+		
 		
 		if (headcount == "") {
 			alert("숙박인원을 입력하세요.");
 			return;
 		}
 		
+		
+		if (isNaN(headcount)) { // ** 숫자가 아닌 값 들어오면 true
+			alert("숙박인원는 숫자만 입력 가능합니다.");
+			return;
+		}
 
 		if (phoneNumber == "") {
 			alert("전화번호를 입력하세요.");
@@ -81,7 +89,7 @@ $(document).ready(function() {
 		
 		// ajax 호출 => 서버 전송
 		$.ajax({
-			// request
+			// request  // *** 요청이 안되면 여기를 봐라!!! 
 			type:"POST"
 			, url:"/lesson06/booking/insert_booking"
 			, data:{"name":name, "headcount":headcount, "day":day,  "date":date, 
@@ -93,7 +101,7 @@ $(document).ready(function() {
 			, success:function(data) {  // jquery ajax 함수가 json string을 object로 파싱해줌
 				if (data.code = 1) {
 					alert(data.result);
-					location.href = "/lesson06/booking/booking_insert_view";
+					location.href = "/lesson06/booking/booking_view";  // get방식으로 보내줌.
 				} else {
 					alert(data.errorMessage);
 				}

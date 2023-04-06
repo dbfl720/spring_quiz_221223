@@ -7,7 +7,7 @@ public class Booking {
 	private String name;
 	private int headcount;
 	private int day;
-	private String date;
+	private String date;   // date 
 	private String phoneNumber;
 	private String state;
 	private Date createdAt;

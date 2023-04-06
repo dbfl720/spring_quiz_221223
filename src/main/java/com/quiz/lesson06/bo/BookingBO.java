@@ -40,6 +40,19 @@ public class BookingBO {
 	
 	// select
 	public Booking getBookingListByField(String name, String phoneNumber) {   // 한 행만 필요하기 때문에 Booking. 
-		return bookingMapper.selectBookingListByField(name, phoneNumber);
+		// 원래 BO에서 가공 많이함!!! 
+		// ** Booking - 없으면 null  // List - 없으면 []
+		// 선생님 코드.
+		List<Booking> bookingList = bookingMapper.selectBookingListByField(name, phoneNumber);
+		// [1 3 7\     - 7번만 줘야 된다. 즉 마지막 꺼를 준다.
+		// x  - 없을 때도 체크 
+		// 7 - 1개면 한개만 주면 됨.
+		
+		if (bookingList.isEmpty()) {
+			return null;
+		}
+		
+		// 비어있지 않으면 값이 있고, 마지막 인덱스에 있는 값을 돌려준다. (최신값)
+		return bookingList.get(bookingList.size() - 1);
 	}
 }

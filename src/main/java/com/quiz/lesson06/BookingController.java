@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ public class BookingController {
 	@Autowired
 	private BookingBO bookingBO;
 	
-	// delete
+	// 예약 목록 보기
 	// localhost:8080/lesson06/booking/booking_view
 	@GetMapping("/booking_view")
 	public String bookingView(Model model) {
@@ -43,12 +44,12 @@ public class BookingController {
 	
 	
 	// id로 삭제 API
-	// AJAX 요청
+	// AJAX 요청 
 	// localhost:8080/lesson06/booking/delete_booking
-	@PostMapping("/delete_booking")
+	@DeleteMapping("/delete_booking")
 	@ResponseBody
 	public Map<String, Object> deleteBooking (
-			@RequestParam("id") int id) {
+			@RequestParam("id") int id) {   // "id"는 ajax에서 data: {"id":id} 여기서 온 파라미터임. ""
 		
 		// delete
 		int rowCount = bookingBO.deleteBookingById(id);
@@ -88,7 +89,7 @@ public class BookingController {
 	@ResponseBody
 	@PostMapping("/insert_booking")
 	public Map<String, Object> addBooking(
-			@RequestParam("name") String name,
+			@RequestParam("name") String name,   // ajax에서 넘겨준 key명과 똑같은 파라미터를 쓰는 것임! 
 			@RequestParam("headcount") int headcount,
 			@RequestParam("day") int day,
 			@RequestParam("date") String date,
@@ -102,7 +103,7 @@ public class BookingController {
 				// insert
 				int rowCount = bookingBO.addBooking(name, headcount, day, date, phoneNumber, state);
 				
-				Map<String, Object> result = new HashMap<>();
+				Map<String, Object> result = new HashMap<>();   // breakpoint
 				if(rowCount > 0) {
 					result.put("code", 1);
 					result.put("result", "성공");
@@ -110,6 +111,9 @@ public class BookingController {
 					result.put("code", 500);
 					result.put("errorMessage", "데이터를 추가하는데 실패했습니다.");
 				}
+				
+				
+				
 				return result;    // JSON String
 			}
 	
@@ -118,7 +122,7 @@ public class BookingController {
 	
 	
 	
-	// select
+	// select 조회 화면
 	// localhost:8080/lesson06/booking/booking_select_view
 	@GetMapping("/booking_select_view")
 	public String bookingSelectView() {
@@ -132,23 +136,24 @@ public class BookingController {
 	// 예약 조회 - AJAX 요청
 	// localhost:8080/lesson06/booking/booking_select
 	@ResponseBody
-	@PostMapping("/booking_select")
+	@GetMapping("/booking_select")
 	public Map<String, Object> selectBooking (
 			@RequestParam("name") String name,
 			@RequestParam("phoneNumber") String phoneNumber) {
 		
-		Map<String, Object> result = new HashMap<>();
+		Map<String, Object> result = new HashMap<>();  // breakpoint // Map은 항상 위에 있어야함. 
 		
-		// select DB
-		Booking booking = bookingBO.getBookingListByField(name, phoneNumber);
+		//select DB   - TODO  - 구현을 안했는데 해야되는게 있을때 쓰는 것임.select DB
+		Booking booking = bookingBO.getBookingListByField(name, phoneNumber);  // 데이터 한개 또는 빵개 받아옴.
 		if (booking == null) {
 			result.put("join", "조회 불가");
 		} else {
-			result.put("name", booking.getName());
-			result.put("date", booking.getDate());
-			result.put("day", booking.getDay());
-			result.put("headCount", booking.getHeadcount());
-			result.put("state", booking.getState());
+			result.put("booking", booking);
+//			result.put("name", booking.getName());
+//			result.put("date", booking.getDate());
+//			result.put("day", booking.getDay());
+//			result.put("headCount", booking.getHeadcount());
+//			result.put("state", booking.getState());
 		}
 		return result;
 		

@@ -31,7 +31,7 @@ public interface BookingMapper {
 	
 	
 	// select
-	public Booking selectBookingListByField(  // 한 행만 필요하기 때문에 Booking. 
+	public List<Booking> selectBookingListByField(  // 한 행만 필요하기 때문에 Booking.  // db에서 다가져 오기 - List<Booking>
 			@Param("name") String name,
 			@Param("phoneNumber") String phoneNumber);
 }

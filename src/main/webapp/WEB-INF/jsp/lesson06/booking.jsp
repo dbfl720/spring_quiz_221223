@@ -43,54 +43,7 @@
 				<jsp:include page="booking_footer.jsp" />
 			</footer>
 	</div>
-	
-	
-	
-	
-	
-<script>
-$(document).ready(function() {
-	
-	$('.del-btn').on('click', function() {
-		let id = $(this).data('bookings-id');
-		// alert(id);
 		
-		
-		$.ajax({
-			
-			// request
-			type:"POST"
-			, url:"/lesson06/booking/delete_booking"
-			, data: {"id":id}
-			
-		
-		
-			// response
-			, success:function(data) {
-				if(data.code == 1) {
-					location.reload(true);   // 새로고침
-				} else {
-					alert(data.errorMessage);
-				}
-			}
-			
-			
-			, error:function(request, status, error) {
-				alert("삭제하는데 실패했습니다. 관리자에게 문의해주세요.");
-			}
-		
-		
-		
-		
-		}); // ajax
-		
-	}); // .del-btn
-	
-}); // ready
-
-
-</script>
-	
 	
 </body>
 </html>
