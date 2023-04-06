@@ -92,6 +92,7 @@ $(document).ready(function() {
 			// response
 			, success:function(data) {  // jquery ajax 함수가 json string을 object로 파싱해줌
 				if (data.code = 1) {
+					alert(data.result);
 					location.href = "/lesson06/booking/booking_insert_view";
 				} else {
 					alert(data.errorMessage);

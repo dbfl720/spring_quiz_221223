@@ -72,11 +72,7 @@ public class BookingController {
 	// insert
 	// localhost:8080/lesson06/booking/booking_insert_view
 	@GetMapping("/booking_insert_view")
-	public String bookingInsertView(Model model) {
-		
-		// select DB
-//		List<Booking> booking = bookingBO.getBookingInsertList();
-//		model.addAttribute("booking", booking);
+	public String bookingInsertView() {
 		
 		return "lesson06/booking_insert_layout";
 	}
@@ -126,10 +122,6 @@ public class BookingController {
 	// localhost:8080/lesson06/booking/booking_select_view
 	@GetMapping("/booking_select_view")
 	public String bookingSelectView() {
-		
-		// select DB
-//		List<Booking> booking = bookingBO.getBookingListByField(name, phoneNumber);
-//		model.addAttribute("booking", booking);
 		
 		return "lesson06/booking_select_layout";
 	}
