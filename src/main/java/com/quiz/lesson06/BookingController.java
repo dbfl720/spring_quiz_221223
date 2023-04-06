@@ -24,7 +24,7 @@ public class BookingController {
 	@Autowired
 	private BookingBO bookingBO;
 	
-	
+	// delete
 	// localhost:8080/lesson06/booking/booking_view
 	@GetMapping("/booking_view")
 	public String bookingView(Model model) {
@@ -38,6 +38,8 @@ public class BookingController {
 	
 	
 	
+	
+
 	
 	
 	// id로 삭제 API
@@ -64,4 +66,71 @@ public class BookingController {
 		return result;
 	}
 	
+	
+	
+	
+	// insert
+	// localhost:8080/lesson06/booking/booking_insert_view
+	@GetMapping("/booking_insert_view")
+	public String bookingInsertView(Model model) {
+		
+		// select DB
+//		List<Booking> booking = bookingBO.getBookingInsertList();
+//		model.addAttribute("booking", booking);
+		
+		return "lesson06/booking_insert_layout";
+	}
+	
+	
+	
+	
+	
+	
+	// 예약하기 API
+	// AJAX 요청
+	// localhost:8080/lesson06/booking/insert_booking
+	@ResponseBody
+	@PostMapping("/insert_booking")
+	public Map<String, Object> addBooking(
+			@RequestParam("name") String name,
+			@RequestParam("headcount") int headcount,
+			@RequestParam("day") int day,
+			@RequestParam("date") String date,
+			@RequestParam("phoneNumber") String phoneNumber,
+			@RequestParam("state") String state){
+				// {"code":1, "result":"성공"}
+				// {"code":500, "errorMessage":"추가하는데 실패했습니다."}
+				
+		
+		
+				// insert
+				int rowCount = bookingBO.addBooking(name, headcount, day, date, phoneNumber, state);
+				
+				Map<String, Object> result = new HashMap<>();
+				if(rowCount > 0) {
+					result.put("code", 1);
+					result.put("result", "성공");
+				} else {
+					result.put("code", 500);
+					result.put("errorMessage", "데이터를 추가하는데 실패했습니다.");
+				}
+				return result;    // JSON String
+			}
+	
+	
+	
+	
+	
+	
+	// select
+	// localhost:8080/lesson06/booking/booking_select_view
+	@GetMapping("/booking_select_view")
+	public String bookingSelectView(Model model) {
+		
+		// select DB
+		List<Booking> booking = bookingBO.getBookingList();
+		model.addAttribute("booking", booking);
+		
+		return "lesson06/booking_select_layout";
+	}
 }

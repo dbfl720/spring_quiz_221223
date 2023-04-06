@@ -28,4 +28,11 @@ public class BookingBO {
 	public int deleteBookingById(int id) {
 		return bookingMapper.deleteBookingById(id);
 	}
+	
+	
+	
+	// insert
+	public int addBooking(String name, int headcount, int day, String date, String phoneNumber, String state) {
+		return bookingMapper.insertBooking(name, headcount, day, date, phoneNumber, state);
+	}
 }
