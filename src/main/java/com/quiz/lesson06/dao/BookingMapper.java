@@ -28,4 +28,10 @@ public interface BookingMapper {
 			@Param("phoneNumber") String phoneNumber,
 			@Param("state") String state);
 	
+	
+	
+	// select
+	public Booking selectBookingListByField(  // 한 행만 필요하기 때문에 Booking. 
+			@Param("name") String name,
+			@Param("phoneNumber") String phoneNumber);
 }
