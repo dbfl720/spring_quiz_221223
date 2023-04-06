@@ -10,8 +10,11 @@ import com.quiz.lesson06.model.Booking;
 public interface BookingMapper {
 	
 	// output: List<booking>   input: x
-	public List<Booking> getBookingList();
+	public List<Booking> selectBookingList();
 	
 	
+	
+	// delect
+	public int deleteBookingById(int id);
 	
 }

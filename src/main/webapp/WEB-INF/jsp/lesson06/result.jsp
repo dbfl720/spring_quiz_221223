@@ -73,7 +73,7 @@ $(document).ready(function() {
 				// request
 				type:"POST"
 				, url:"/lesson06/quiz01/delete_lists"
-				, data : {"id:id"}
+				, data : {"id":id}
 				
 			
 			
