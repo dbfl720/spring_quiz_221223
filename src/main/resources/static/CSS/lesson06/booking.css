@@ -6,8 +6,7 @@ html,body {height:100%;}
 #wrap{height: 1300px;}
 header{height:100px;}
 nav{height: 45px; background-color: rgb(209, 144, 58); text-decoration: none;}
-.nav-li{text-decoration: none;}
-.nav-ul{text-decoration: none;}
+nav > ul > li{list-style: none;}
 .nav-a:hover{text-decoration: none;}
 section{height: 1000px;}
 footer{height:100px;}
