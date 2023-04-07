@@ -1,10 +1,12 @@
 package com.quiz.lesson06;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +27,7 @@ public class BookingController {
 	@Autowired
 	private BookingBO bookingBO;
 	
-	// 예약 목록 보기
+	// 1. 예약 목록 화면
 	// localhost:8080/lesson06/booking/booking_view
 	@GetMapping("/booking_view")
 	public String bookingView(Model model) {
@@ -43,7 +45,7 @@ public class BookingController {
 
 	
 	
-	// id로 삭제 API
+	// 1. 예약 삭제 
 	// AJAX 요청 
 	// localhost:8080/lesson06/booking/delete_booking
 	@DeleteMapping("/delete_booking")
@@ -69,7 +71,7 @@ public class BookingController {
 	
 	
 	
-	
+	 // 2. 예약하기 화면
 	// insert
 	// localhost:8080/lesson06/booking/booking_insert_view
 	@GetMapping("/booking_insert_view")
@@ -82,7 +84,7 @@ public class BookingController {
 	
 	
 	
-	
+	// 2. 예약하기 기능
 	// 예약하기 API
 	// AJAX 요청
 	// localhost:8080/lesson06/booking/insert_booking
@@ -92,16 +94,15 @@ public class BookingController {
 			@RequestParam("name") String name,   // ajax에서 넘겨준 key명과 똑같은 파라미터를 쓰는 것임! 
 			@RequestParam("headcount") int headcount,
 			@RequestParam("day") int day,
-			@RequestParam("date") String date,
-			@RequestParam("phoneNumber") String phoneNumber,
-			@RequestParam("state") String state){
+			@RequestParam("date") @DateTimeFormat (pattern="yyyy-MM-dd") Date date,
+			@RequestParam("phoneNumber") String phoneNumber){
 				// {"code":1, "result":"성공"}
 				// {"code":500, "errorMessage":"추가하는데 실패했습니다."}
 				
 		
 		
 				// insert
-				int rowCount = bookingBO.addBooking(name, headcount, day, date, phoneNumber, state);
+				int rowCount = bookingBO.addBooking(name, headcount, day, date, phoneNumber);
 				
 				Map<String, Object> result = new HashMap<>();   // breakpoint
 				if(rowCount > 0) {
@@ -122,7 +123,7 @@ public class BookingController {
 	
 	
 	
-	// select 조회 화면
+	// 3. 예약 조회 하면
 	// localhost:8080/lesson06/booking/booking_select_view
 	@GetMapping("/booking_select_view")
 	public String bookingSelectView() {
@@ -132,7 +133,7 @@ public class BookingController {
 	
 	
 	
-	// 조회하기 API 
+	// 3. 예약 조회 기능
 	// 예약 조회 - AJAX 요청
 	// localhost:8080/lesson06/booking/booking_select
 	@ResponseBody

@@ -4,21 +4,21 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-<div class="container">
-
-	<h1 class="mt-2 mb-2 text-center ">예약하기</h1>
-	<div class="font-weight-bold">이름</div>
-	<div><input id="name" class="form-control  col-5 mb-3"></div>
-	<div class="font-weight-bold">예약날짜</div>
-	<div><input id="date" class="form-control  col-5 mb-3"></div>
-	<div class="font-weight-bold">숙박일수</div>
-	<div><input id="day" class="form-control  col-5 mb-3"></div>
-	<div class="font-weight-bold">숙박인원</div>
-	<div><input id="headcount" class="form-control  col-5 mb-3"></div>
-	<div class="font-weight-bold">전환번호</div>
-	<div><input id="phoneNumber" class="form-control  col-5 mb-3"></div>
-	<div></div><input id="state" class="d-none" value="대기중">대기중</div>
-	<div><button id="addBookingBtn" type="button" class="btn btn-warning col-5">예약하기</button></div>
+<div class="container d-flex justify-content-center align-items-center">
+	<div>
+		<h1 class="mt-5 mb-5 text-center ">예약하기</h1>
+		<div class="font-weight-bold">이름</div>
+		<div><input id="name" class="form-control reserveInput1 mb-3"></div>
+		<div class="font-weight-bold">예약날짜</div>
+		<div><input id="date" class="form-control reserveInput1  mb-3"></div>
+		<div class="font-weight-bold">숙박일수</div>
+		<div><input id="day" class="form-control reserveInput1 col-12 mb-3"></div>
+		<div class="font-weight-bold">숙박인원</div>
+		<div><input id="headcount" class="form-control reserveInput1 col-12 mb-3"></div>
+		<div class="font-weight-bold">전화번호</div>
+		<div><input id="phoneNumber" class="form-control reserveInput1 col-12 mb-3"></div>
+		<div><button id="addBookingBtn" type="button" class="reserveInput1 btn btn-warning mt-5">예약하기</button></div>
+	</div>
 </div>
 
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
 		let day = $("#day").val().trim();
 		let date = $("#date").val().trim();
 		let phoneNumber = $("#phoneNumber").val().trim();
-		let state = $("#state").val();
+		
 		
 		
 		if (name == "") {
@@ -66,11 +66,21 @@ $(document).ready(function() {
 			return;
 		}
 		
+		if (day > 14) {
+			alert("숙박일수는 14일 이내로 가능합니다.");
+			return;
+		}
+		
 		
 		if (headcount == "") {
 			alert("숙박인원을 입력하세요.");
 			return;
 		}
+		
+		if (headcount > 30) {
+			alert("숙박인원은 30명 이내로 가능합니다.");
+			return;
+		} 
 		
 		
 		if (isNaN(headcount)) { // ** 숫자가 아닌 값 들어오면 true
@@ -83,6 +93,19 @@ $(document).ready(function() {
 			return;
 		}
 		
+		if (phoneNumber.startsWith("010") == false) {
+			alert("010으로 시작하는 번호를 입력해주세요.");
+			return;
+		}
+		
+		
+		
+   	    console.log(phoneNumber.length);
+		 if (phoneNumber.length > 13) {
+			alert("전화번호는 '-'를 포함한 총 13자리 이내로 적어주세요.");
+			return;
+		} 
+		
 		
 		
 		
@@ -93,7 +116,7 @@ $(document).ready(function() {
 			type:"POST"
 			, url:"/lesson06/booking/insert_booking"
 			, data:{"name":name, "headcount":headcount, "day":day,  "date":date, 
-				    "phoneNumber":phoneNumber,  "state":state}
+				    "phoneNumber":phoneNumber}
 			
 		
 		

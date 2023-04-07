@@ -1,5 +1,6 @@
 package com.quiz.lesson06.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -24,9 +25,8 @@ public interface BookingMapper {
 			@Param("name") String name,
 			@Param("headcount") int headcount,
 			@Param("day") int day, 
-			@Param("date") String date, 
-			@Param("phoneNumber") String phoneNumber,
-			@Param("state") String state);
+			@Param("date") Date date, 
+			@Param("phoneNumber") String phoneNumber);
 	
 	
 	

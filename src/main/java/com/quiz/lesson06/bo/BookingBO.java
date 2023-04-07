@@ -1,5 +1,6 @@
 package com.quiz.lesson06.bo;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class BookingBO {
 	
 	
 	// insert
-	public int addBooking(String name, int headcount, int day, String date, String phoneNumber, String state) {
-		return bookingMapper.insertBooking(name, headcount, day, date, phoneNumber, state);
+	public int addBooking(String name, int headcount, int day, Date date, String phoneNumber) {
+		return bookingMapper.insertBooking(name, headcount, day, date, phoneNumber);
 	}
 	
 	
@@ -52,7 +53,7 @@ public class BookingBO {
 			return null;
 		}
 		
-		// 비어있지 않으면 값이 있고, 마지막 인덱스에 있는 값을 돌려준다. (최신값)
+		// 비어있지 않으면 값이 있고, 마지막 인덱스에 있는 값을 돌려준다. (최신값) : 인덱스 값 얻기 위해 -1 
 		return bookingList.get(bookingList.size() - 1);
 	}
 }

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<h1 class="text-center pt-4 mb-4">예약 목록 보기</h1>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<h1 class="text-center pt-4 mb-5 mt-3">예약 목록 보기</h1>
 				<table class="table text-center">
 					<thead>
 						<tr>
@@ -19,7 +20,7 @@
 					<c:forEach items="${booking}" var="bookings">
 						<tr>
 							<td>${bookings.name}</td>
-							<td>${bookings.date}</td>
+							<td><fmt:formatDate value="${bookings.date}" pattern="yyyy년 M월 d일"/></td>
 							<td>${bookings.day}</td>
 							<td>${bookings.headcount}</td>
 							<td>${bookings.phoneNumber}</td>
