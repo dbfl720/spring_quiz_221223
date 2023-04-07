@@ -101,6 +101,66 @@ https://user-images.githubusercontent.com/116433637/229274546-4e3c00b2-9895-4117
 
 
 
+
+
+
+
+#  🌳 에러 코드
+Whitelabel Error Page
+
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Thu Apr 06 12:23:48 KST 2023
+
+There was an unexpected error (type=Internal Server Error, status=**500**).
+
+org.apache.jsp.WEB_002dINF.jsp.lesson06.booking_005finsert_005flayout_jsp
+
+java.lang.**ClassNotFoundException**: org.apache.jsp.WEB_002dINF.jsp.lesson06.booking_005finsert_005flayout_jsp
+
+
+ <br><br>
+ 
+ 
+
+* 🌾 원인 : incldue 스펠링 실수.
+
+* 🌾 해결 방법 :  incldue -> include 수정. <br>
+
+ 
+
+
+ <br><br>
+**<전>** <br>
+![스크린샷 2023-04-06 오후 12 31 52](https://user-images.githubusercontent.com/116433637/230524441-0fa1a2b0-6214-4ad7-818c-ec0736f169fc.png)
+
+
+
+ <br><br>
+
+**<후>** <br>
+
+![스크린샷 2023-04-06 오후 12 32 07](https://user-images.githubusercontent.com/116433637/230524473-1897c093-d717-400e-921b-b1b92a8c6e93.png)
+
+ <br>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #  🌳 에러 코드
 org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors Field error in object 'weatherHistory' on field 'date': rejected value [2023-04-19]; codes [typeMismatch.weatherHistory.date,typeMismatch.date,typeMismatch.java.util.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [weatherHistory.date,date]; arguments []; default message [date]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.Date' for property 'date'; nested exception is org.springframework.core.convert.ConversionFailedException: **Failed to convert from type [java.lang.String] to type [java.util.Date] for value '2023-04-19'; nested exception is java.lang.IllegalArgumentException]**
 
