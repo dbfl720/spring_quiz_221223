@@ -106,6 +106,50 @@ https://user-images.githubusercontent.com/116433637/229274546-4e3c00b2-9895-4117
 
 
 #  🌳 에러 코드
+ Error querying database. Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`phoneNumber` = '010-0000-0000'' at line 15
+ The error may exist in file [/Users/hongyuri/Desktop/메가스터디 IT/Spring노트북/clone/bin/main/mappers/bookingMapper.xml]
+ The error may involve com.quiz.lesson06.dao.BookingMapper.selectBookingListByField-Inline
+The error occurred while setting parameters
+ SQL: SELECT `id` ,`name` ,`headcount` ,`day` ,`date` ,`phoneNumber` ,`state` ,`createdAt` ,`updatedAt` FROM `booking` WHERE `name` = ? `phoneNumber` = ?
+ Cause: java.sql.**SQLSyntaxErrorException**: You have an error in your **SQL syntax**; check the manual that corresponds to your MySQL server version for the right syntax to use near **'`phoneNumber` = '010-0000-0000'' at line 15**
+
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`phoneNumber` = '010-0000-0000'' at line 15] with root cause
+
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`phoneNumber` = '010-0000-0000'' at line 15
+
+ <br><br>
+ 
+ 
+* 🌾 원인 : xml 쿼리 오타.  AND 쓰지 않음.
+
+* 🌾 해결 방법 : WHERE에 두개이상 쓸 때는 AND 쓰기!  <br>
+
+ 
+
+
+ <br><br>
+**<후>** <br>
+
+![스크린샷 2023-04-06 오후 4 43 32](https://user-images.githubusercontent.com/116433637/230525193-f7be5353-f3f9-4333-87dd-10c269987b6f.png)
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#  🌳 에러 코드
 Whitelabel Error Page
 
 This application has no explicit mapping for /error, so you are seeing this as a fallback.
