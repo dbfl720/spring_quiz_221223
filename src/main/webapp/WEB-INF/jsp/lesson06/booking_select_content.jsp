@@ -38,8 +38,7 @@
 				</div>
 			</div>
 			<div class="d-flex justify-content-end">
-				<button id="selectBtn" type="button" class="btn btn-success mr-3">조회
-					하기</button>
+				<button id="selectBtn" type="button" class="btn btn-success mr-3">조회하기</button>
 			</div>
 		</div>
 	</div>
@@ -95,20 +94,18 @@
 									} else {
 										//data.booking.name
 										alert("이름 : " + data.booking.name
-												+ "\n날짜 : " + data.booking.date
-												+ // data.booking.date.slice(0,10);
-												"\n일수 : " + data.booking.day
-												+ "\n인원 : "
-												+ data.booking.headcount
-												+ "\n상태 : "
-												+ data.booking.state);
-
+												+ "\n날짜 : " + data.booking.date.slice(0,10)
+												+ "\n일수 : " + data.booking.day
+												+ "\n인원 : " + data.booking.headcount
+												+ "\n상태 : " + data.booking.state);
+										location.reload(true);   // 새로고침
 									}
 								}
 
 								,
 								error : function(request, status, error) {
 									alert("예약 내역을 조회하는데 실패했습니다.");
+									location.reload(true);   // 새로고침
 								}
 
 							}); // ajax 

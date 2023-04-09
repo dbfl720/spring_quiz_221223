@@ -161,4 +161,18 @@ public class BookingController {
 		
 	}
 	
+	
+	
+	
+	
+	
+	// 4. 팬션 조회 화면
+	// select
+	// localhost:8080/lesson06/booking/booking_house_view
+	@GetMapping("/booking_house_view")
+	public String bookingHouseView() {
+		
+		return "lesson06/booking_house_layout";
+	}
+	
 }

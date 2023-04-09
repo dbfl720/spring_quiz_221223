@@ -10,21 +10,29 @@ nav > ul > li{list-style: none;}
 .nav-a:hover{text-decoration: none; color:#1C1C1C;}
 .nav-a{color:white;}
 
-section{height: auto; min-height: 700px; overflow: auto;}
+section{height: auto; min-height: 750px; overflow: auto;}
 .inputName{width:250px;}
 .inputPhoneNumber{width:250px;}
-.content1{ height: 250px; width:400px; display: flex; justify-content: center; align-items: center; font-size: 40px;  background: #eacda3;  /* fallback for old browsers */
+.content1{ height: 250px; width:400px; display: flex; justify-content: center; align-items: center; font-size: 40px; 
+background: #eacda3;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .content2{ height: 250px; width:400px;   background-color: rgb(209, 144, 58);}
 .checkReservation:hover {text-decoration: none;}
 .checkReservation{color:white;}
 .checkReservation:hover{color:#1C1C1C;}
-.content3{ height: 250px; width:400px;  display: flex; justify-content: center; align-items: center; font-size: 40px; background: #D1913C;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFD194, #D1913C);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFD194, #D1913C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-font-size: 35px;}
+.content3{ height: 250px; width:400px;  display: flex; justify-content: center; align-items: center; font-size: 40px; font-size: 35px;
+background: #eacda3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* booking.css */
+.pics {transition: all 0.2s linear;}
+.pics:hover {transform: scale(1.4);}
+
 
 .reserveInput1{width:400px;}
-footer{height:100px;}
+footer{height:120px;}
